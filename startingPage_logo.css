@@ -1,0 +1,86 @@
+@charset "utf-8";
+/* CSS Document */
+* {
+	margin: 0px;
+	padding: 0px;
+}
+header, nav, section, article, hroup, aside, footer {
+	display: block;
+}
+body {
+	text-align: center;
+	margin: 0px;
+	background:#000;	
+	background-repeat:no-repeat;
+}
+#header h1{
+	
+	text-align:center;
+	color:#FFFFFF;
+	font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	font-size:35px;
+	-webkit-animation-timing-function:linear;
+	-webkit-animation-delay:2s;
+	-webkit-animation-name:header;
+	-webkit-animation-duration:3s;
+	-webkit-animation-play-state:running;
+	-webkit-animation-fill-mode: forwards;
+	visibility:hidden;
+}
+@-webkit-keyframes header /* Safari and Chrome */ {
+
+/*
+0%   { visibility:visible; left:100px; top:100px;  width: 10px; height:10px;}
+25%  { left:100px; top:100px; width: 70px; height:70px;}
+50%  {left:100px; top:100px; width: 150px; height:150px;}
+75%  { left:100px; top:100px; width: 250px; height:250px;}
+100% {visibility:visible; left:100px; top:100px; width: 400px; height:400px; }
+
+*/
+from {
+visibility:visible;
+	opacity:0;
+}
+to {
+	visibility:visible;
+	opacity:1;
+
+}
+}
+
+#image{
+	position:relative;
+	visibility:hidden;
+	-webkit-animation-timing-function:linear;
+	-webkit-animation-delay:0.1s;
+	-webkit-animation-name:myfirst;
+	-webkit-animation-duration:0.3s;
+	-webkit-animation-play-state:running;
+	-webkit-animation-fill-mode: forwards;	
+}
+@-webkit-keyframes myfirst /* Safari and Chrome */ {
+
+/*
+0%   { visibility:visible; left:100px; top:100px;  width: 10px; height:10px;}
+25%  { left:100px; top:100px; width: 70px; height:70px;}
+50%  {left:100px; top:100px; width: 150px; height:150px;}
+75%  { left:100px; top:100px; width: 250px; height:250px;}
+100% {visibility:visible; left:100px; top:100px; width: 400px; height:400px; }
+
+*/
+from {
+visibility:visible;
+	left:50px;
+	top:300px;
+	width: 0px;
+	height:0px;
+}
+to {
+	visibility:visible;
+	left: 25px;
+	top: 10px;
+	width: 550px;
+	height:500px;
+
+}
+}
