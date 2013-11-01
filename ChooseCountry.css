@@ -1,0 +1,129 @@
+@charset "utf-8";
+/* CSS Document */
+
+body, html {
+	height:100%;
+	width: 100%;
+	overflow:hidden;
+	
+} 
+
+* {
+	margin: 0px;
+	padding: 0px;
+}
+
+
+#instr {
+	text-align:center;
+	text-align-last:none;
+	color:#000000;
+	font-family:"Palatino Linotype", "Book Antiqua", Palatino, serif;
+	line-height: 50px;
+	font-size:50px;
+	position:absolute;
+	-webkit-transition: all .1s;
+	background-color:rgba(0,153,255,.7);
+	width:100%;
+	height: 100%;
+	overflow:hidden;
+	
+	
+}
+
+#cyflag {
+	position:relative;
+	top: 50px;
+	left: -300px;
+	border-radius: 80px;
+	-webkit-transition: all .5s;
+}
+
+#finlandflag {
+	position:relative;
+	top: -95px;
+	left: 0px;
+	border-radius: 80px;
+	-webkit-transition: all .5s;
+}
+
+#romaniaflag {
+	position:relative;
+	top: -250px;
+	left: 300px;
+	border-radius: 80px;
+	-webkit-transition: all .5s;
+}
+
+#polandflag {
+	position:relative;
+	top: -150px;
+	left: -300px;
+	border-radius: 80px;
+	-webkit-transition: all .5s;
+}
+
+#italyflag {
+	position:relative;
+	top: -280px;
+	left: 0px;
+	border-radius: 80px;
+	-webkit-transition: all .5s;
+}
+	
+#spainflag {
+	position:relative;
+	top: -400px;
+	left: 300px;
+	border-radius: 80px;
+	-webkit-transition: all .5s;
+}
+
+#img_back {
+	position:relative;
+	bottom:350px;
+	left:-500px;
+	-webkit-transition: all .1s;
+}
+
+#back :hover{
+	-webkit-transform: translateX(-5px);
+}
+
+#img_home {
+	position:relative;
+	bottom:450px;
+	left:500px;
+	-webkit-transition: all .1s;
+}
+
+#home :hover{
+	-webkit-transform: translateX(5px);
+}
+
+#spn :hover{
+
+	-webkit-transform: translateY(-10px);
+	
+}
+#cy :hover{
+	-webkit-transform: translateY(-10px);
+}
+
+#fin :hover{
+	-webkit-transform: translateY(-10px);
+}
+
+#rom :hover{
+	-webkit-transform: translateY(-10px);
+}
+
+#pol :hover{
+	-webkit-transform: translateY(-10px);
+}
+
+#ita :hover{
+	-webkit-transform: translateY(-10px);
+	
+}
+	
