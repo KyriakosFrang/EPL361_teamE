@@ -24,49 +24,64 @@ body, html {
 	width:100%;
 	height:100%;
 	background:#FFF;
-}
-#mainPage {
-	position:relative;
-	width:100%;
-	height:100%;
-	overflow:hidden;
-	background-repeat:no-repeat;
 	-webkit-animation-timing-function:linear;
 	-webkit-animation-delay:0s;
-	-webkit-animation-name:flags;
+	-webkit-animation-name:  flags;
 	-webkit-animation-duration:20s;
 	-webkit-animation-iteration-count:infinite;
 	-webkit-animation-play-state:running;
 }
+#mainPage {
+	position:absolute;
+	width:100%;
+	height:100%;
+	overflow:hidden;
+	background-repeat:no-repeat;
+	
+	
+}
 @-webkit-keyframes flags /* Safari and Chrome */ {
  0% {
-background-image:url(Asset/cyprus.jpg);
+background-image:url(Asset/cyprusfinal1.gif) ;
 background-repeat:no-repeat;
+width: 100%;
+height: 100%;
 opacity: 0.7;
 }
 20% {
-background-image:url(Asset/finland.jpg);
+background-image:url(Asset/polandfinal.gif);
 background-repeat:no-repeat;
+width: 100%;
+height: 100%;
 opacity: 0.7;
 
 }
 40% {
-background-image:url(Asset/italy.jpg);
+background-image: url(Asset/romaniafinal.gif);
 background-repeat:no-repeat;
+width: 100%;
+height: 100%;
+opacity: 0.7;
 }
 60% {
-background-image:url(Asset/poland.jpg);
+background-image:url(Asset/finlandfinal.gif);
 background-repeat:no-repeat;
+width: 100%;
+height: 100%;
 opacity: 0.7;
 }
 80% {
-background-image:url(Asset/romania.jpg);
+background-image:url(Asset/italy.jpg);
 background-repeat:no-repeat;
+width: 100%;
+height: 100%;
 opacity: 0.7;
 }
 100% {
 background-image:url(Asset/spain.jpg);
 background-repeat:no-repeat;
+width: 100%;
+height: 100%;
 opacity: 0.7;
 }
 }
@@ -88,10 +103,7 @@ header, nav, section, article, hroup, aside, footer {
 	float:right;
 	padding-right:150PX;
 }*/
-a img:hover {
-	width: 70px;
-	-webkit-transform:translateX(20px);
-}
+
  @-webkit-keyframes header /* Safari and Chrome */ {
 
 /*
@@ -116,6 +128,7 @@ to {
 	vertical-align:central;
 	padding: 0;
 	margin: 0;
+	
 }
 #list_menu{
 	position:relative;
@@ -214,7 +227,7 @@ to {
 70%  { left:-120px; top:-100px;}
 80%  { left:-80px; top:-400px;}
 90%  { left:-40px; top:-100x;}
-100%  {visibility:visible; left:0px; top:-130px;}
+100%  {visibility:visible; left:0px; top:-130px; }
 
  
 /*
@@ -271,4 +284,46 @@ to {
 .muteImg{
 	width:42px;
 	height:42px;
+}
+
+#dialog_exit{
+	position:absolute;
+	left: 35%;
+	top: 35%;	
+	background-color:rgba(153,153,153,.7);
+	border-radius: 10px;
+	font:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	font-size:35px;
+	width:450px;
+	height: 250px;
+	visibility:hidden;
+}
+#dialog_exit h2{
+	text-align:center;
+	color:#FFF;	
+	
+}
+
+#yes{
+	position: relative;	
+	left: 50px;
+	top: 20px;
+}
+
+#no{
+	position: relative;	
+	left: 260px;
+	top: -115px;
+}
+#dialog_exit a{
+	-webkit-transition: -webkit-transform .5s;	
+	cursor: pointer;
+}
+#yes :hover{
+	-webkit-transform: translateY(10px);
+	
+}
+#no :hover{
+	-webkit-transform: translateY(10px);
+	
 }
