@@ -1,0 +1,210 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<link rel="stylesheet" href="Words.css" type ="text/css">
+<style>
+a {
+	cursor:pointer;
+}
+</style>
+<meta charset="utf-8">
+<title>ItalianWords</title>
+</head>
+
+<body>
+<script type="text/javascript">
+
+	
+	function playSi(){
+		var sound = document.getElementById("si");
+		sound.play();	
+	}
+	
+	function playNo(){
+		var sound = document.getElementById("no");
+		sound.play();	
+	}
+	
+	
+	function playGrazie(){
+		var sound = document.getElementById("grazie");
+	    sound.play();	
+	}
+	
+	function playPerFavore(){
+		var sound = document.getElementById("perfavore");
+	    sound.play();	
+	}
+		
+	function playMiScusi(){
+		var sound = document.getElementById("miscusi");
+	    sound.play();	
+	}
+	
+	function playBongiorno(){
+		var sound = document.getElementById("bongiorno");
+	    sound.play();	
+	}
+	
+	function playBuonaNotte(){
+		var sound = document.getElementById("buonanotte");
+	    sound.play();	
+	}
+	
+	function playCiao(){
+		var sound = document.getElementById("Ciao");
+	    sound.play();	
+	}
+	
+	function playPiacere(){
+		var sound = document.getElementById("piacere");
+	    sound.play();	
+	}
+		
+	function playCome(){
+		var sound = document.getElementById("come");
+	    sound.play();	
+	}
+	
+	function playIlNome(){
+		var sound = document.getElementById("ilnome");
+	    sound.play();	
+	}
+	
+	function playComeStai(){
+		var sound = document.getElementById("comestai");
+	    sound.play();	
+	}
+	
+	function playStoBene(){
+		var sound = document.getElementById("stobene");
+	    sound.play();	
+	}
+	
+	function playNonBene(){
+		var sound = document.getElementById("nonbene");
+	    sound.play();	
+	}
+</script>
+<div id="title">
+<p> Learn the Italian Language </p>
+</br>
+<div id="papyrus" >
+<div id="img"><img src="Asset/papyrus.gif" width="600" height="700"/></div>
+<table id="table_lang" style="line-height:30px;">
+  <tr>
+    <td> English </td>
+    <td> Italian </td>
+    <td> Sound </td>
+  </tr>
+  <tr>
+    <td> Yes </td>
+    <td>Sì</td>
+    <td><a onclick="playSi();"><img src="Asset/soundon1.png" width="25" height="25" />
+    <audio id="si" src="Asset/wav files/Si.wav" hidden="true"></audio>
+    </a></td>
+  </tr>
+  <tr>
+    <td> No </td>
+    <td> No</td>
+    <td><a onclick="playNo();"><img src="Asset/soundon1.png" width="25" height="25" />
+    <audio id="no" src="Asset/wav files/No.wav" hidden="true"></audio>
+    </a></td>
+  </tr>
+  <tr>
+    <td> Thank you </td>
+    <td>Grazie</td>
+    <td><a onclick="playGrazie();"><img src="Asset/soundon1.png" width="25" height="25" />
+    <audio id="grazie" src="Asset/wav files/Grazie.wav" hidden="true"></audio>
+    </a></td>
+  </tr>
+  <tr>
+    <td> Please </td>
+    <td>Per Favore</td>
+    <td><a onclick="playPerFavore();"><img src="Asset/soundon1.png" width="25" height="25" />
+    <audio id="perfavore" src="Asset/wav files/Perfavore.wav" hidden="true"></audio>
+    </a></td>
+  </tr>
+  <tr>
+    <td> Excuse me </td>
+    <td>Mi Scusi</td>
+    <td><a onclick="playMiScusi();"><img src="Asset/soundon1.png" width="25" height="25" />
+    <audio id="miscusi" src="Asset/wav files/Mi Scusi.wav" hidden="true"></audio>
+    </a></td>
+  </tr>
+  <tr>
+    <td> Bye Bye </td>
+    <td>Ciao</td>
+   <td><a onclick="playCiao();"><img src="Asset/soundon1.png" width="25" height="25" />
+    <audio id="Ciao" src="Asset/wav files/Ciao.wav" hidden="true"></audio>
+    </a></td>
+  </tr>
+  <tr>
+    <td> Goodmorning </td>
+    <td>Bongiorno</td>
+   <td><a onclick="playBongiorno();"><img src="Asset/soundon1.png" width="25" height="25" />
+    <audio id="bongiorno" src="Asset/wav files/Buongiorno.wav" hidden="true"></audio>
+    </a></td>
+  </tr>
+  <tr>
+    <td> Goodnight </td>
+    <td>Buona Notte</td>
+    <td><a onclick="playBuonaNotte();"><img src="Asset/soundon1.png" width="25" height="25" />
+    <audio id="buonanotte" src="Asset/wav files/Buonanotte.wav" hidden="true"></audio>
+    </a></td>  </tr>
+  <tr>
+    <td> Hello</td>
+    <td>Ciao</td>
+    <td><a onclick="playCiao();"><img src="Asset/soundon1.png" width="25" height="25" />
+    <audio id="Ciao" src="Asset/wav files/Ciao.wav" hidden="true"></audio>
+    </a></td>
+  </tr>
+  <tr>
+    <td> Nice to meet you </td>
+    <td>Piacere d’incontrarti</td>
+    <td><a onclick="playPiacere();"><img src="Asset/soundon1.png" width="25" height="25" />
+    <audio id="piacere" src="Asset/wav files/Piacere Di Incontrarti.wav" hidden="true"></audio>
+    </a></td>
+  </tr>
+  <tr>
+    <td> What’s your name? </td>
+    <td>Come ti chiami?</td>
+   <td><a onclick="playCome();"><img src="Asset/soundon1.png" width="25" height="25" />
+    <audio id="come" src="Asset/wav files/Come Ti Chiami_.wav" hidden="true"></audio>
+    </a></td>
+  </tr>
+  <tr>
+    <td> My name is </td>
+    <td>Il mio nome è</td>
+    <td><a onclick="playIlNome();"><img src="Asset/soundon1.png" width="25" height="25" />
+    <audio id="ilnome" src="Asset/wav files/Il Mio Nome E_...wav" hidden="true"></audio>
+    </a></td>
+  </tr>
+  <tr>
+    <td> How are you? </td>
+    <td>Come stai?</td>
+    <td><a onclick="playComeStai();"><img src="Asset/soundon1.png" width="25" height="25" />
+    <audio id="comestai" src="Asset/wav files/Come Stai_.wav" hidden="true"></audio>
+    </a></td>
+  </tr>
+  <tr>
+    <td> I’m fine</td>
+    <td>Sto bene</td>
+    <td><a onclick="playStoBene();"><img src="Asset/soundon1.png" width="25" height="25" />
+    <audio id="stobene" src="Asset/wav files/Sto Bene.wav" hidden="true"></audio>
+    </a></td>
+  </tr>
+  <tr>
+    <td> I’m not fine </td>
+    <td>Non sto bene</td>
+   <td><a onclick="playNonBene();"><img src="Asset/soundon1.png" width="25" height="25" />
+    <audio id="nonbene" src="Asset/wav files/Non Sto Bene.wav" hidden="true"></audio>
+    </a></td>
+  </tr>
+</table>
+</div>
+</div>
+<div id="back"> <a href="ChooseCountry.html"><img src="Asset/back.png" width="80" height="80"/></a></div>
+<div id="home"> <a href="Index2.html"><img src="Asset/home.png" width="80" height="80"/></a></div> 
+</body>
+</html>
