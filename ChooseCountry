@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<link rel="stylesheet" href="ChooseCountry.css" type ="text/css">
+<meta charset="utf-8">
+<title>ChooseCountry</title>
+</head>
+
+<body>
+<div id="instr">
+  <p> Choose Country </p>
+  <div id="cy"> <a href="CyprusWords.html"><img id="cyflag" src="Asset/CY2.png" width="200" height="143"/ alt="Cyprus" /> </a> </div>
+  <div id="fin"> <a href="FinlandWords.html"><img id="finlandflag" src="Asset/The Finnish flag2.png" width="200" height="154" alt="Finland" /> </a> </div>
+  <div id="rom"> <a href="RomanianWords.html"><img id="romaniaflag" src="Asset/romania2.png" width="200" height="146" alt="Romania" /> </a> </div>
+  <div id="pol"> <a href="PolishWords.html"><img id="polandflag" src="Asset/PL flag2.png" width="200" height="140" alt="Poland" /> </a> </div>
+  <div id="ita"> <a href="ItalianWords.html"><img id="italyflag" src="Asset/italy2.png" width="200" height="125" alt="Italy" /> </a> </div>
+  <div id="spn"><a href="SpanishWords.html"><img id="spainflag"src="Asset/spain2.png" width="200" height="113" alt="Spain"/> </a></div>
+  <div id="back"> <a href="LearningOption.html"><img id="img_back" src="Asset/back.png" width="80" height="80"/></a></div>
+  <div id="home"> <a href="Index2.html"><img id="img_home" img src="Asset/home.png" width="80" height="80"/></a></div>
+</div>
+</body>
+</html>
