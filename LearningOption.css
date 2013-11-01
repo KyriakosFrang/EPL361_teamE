@@ -1,0 +1,136 @@
+@charset "utf-8";
+/* CSS Document */
+
+body, html {
+	height:100%;
+	width: 100%;
+		overflow:hidden;
+}
+* {
+	margin: 0px;
+	padding: 0px;
+}
+#title {
+	text-align:center;
+	font-size: 40px;
+}
+#container {
+	position:absolute;
+	width:100%;
+	height: 100%;
+	overflow:hidden;
+	text-align:center;
+	-webkit-animation: flags 20s linear infinite;
+}
+
+@-webkit-keyframes flags /* Safari and Chrome */ {
+ 0% {
+background-image:url(Asset/cyprusfinal1.gif);
+background-repeat:no-repeat;
+ opacity: 0.7;
+}
+20% {
+background-image:url(Asset/polandfinal.gif);
+background-repeat:no-repeat;
+ opacity: 0.7;
+}
+40% {
+background-image: url(Asset/romaniafinal.gif);
+background-repeat:no-repeat;
+ opacity: 0.7;
+}
+60% {
+background-image:url(Asset/finlandfinal.gif);
+background-repeat:no-repeat;
+ opacity: 0.7;
+}
+80% {
+background-image:url(Asset/italy.jpg);
+background-repeat:no-repeat;
+ opacity: 0.7;
+}
+100% {
+background-image:url(Asset/spain.jpg);
+background-repeat:no-repeat;
+opacity: 0.7;
+}
+}
+
+#choices {
+	background-color:rgba(0,51,255,.6);
+	border-radius: 100px;
+	position:relative;
+	width:450px;
+	min-width: 300px;
+	max-width: 450px;
+	left:35%;
+	bottom: 60%;
+	font-size: 30px;
+
+}
+#choices a {
+	text-decoration:none;
+	transition:all .2s;
+	color:#000000;
+	
+}
+#choices a:hover {
+	color: #FFF;
+	background-color:rgba(153,153,153,.8);
+	border-radius: 10px;
+}
+#man, #woman {
+	width: 350px;
+	z-index: -1;
+}
+#man {
+	left: 0%;
+	top: 10%;
+	position:relative;
+}
+#woman {
+	position:relative;
+	left: 70%;
+	bottom: 80%;
+}
+
+#img_home {
+	position:relative;
+	bottom:-500px;
+	left:1000px;
+	-webkit-transition: all .1s;
+}
+/*#opt1 {
+	text-align:center;
+	text-align-last:none;
+	color:#000000;
+	font-family:"Palatino Linotype", "Book Antiqua", Palatino, serif;
+	line-height: 50px;
+	font-size:25px;
+	border-radius:20px;
+	-webkit-transition: all .1s
+}
+
+#opt2 {
+	text-align:center;
+	text-align-last:none;
+	color:#000000;
+	font-family:"Palatino Linotype", "Book Antiqua", Palatino, serif;
+	line-height: 50px;
+	font-size:25px;
+	border-radius:20px;
+	-webkit-transition: all .1s
+}
+
+#opt1 {
+	position:relative;
+	top: 100px;
+	left:0px;
+}
+
+#opt2 {
+	position:relative;
+	top: 0px;
+	left:0px;
+}
+*/
