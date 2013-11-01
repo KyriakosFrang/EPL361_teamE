@@ -1,0 +1,209 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<link rel="stylesheet" href="Words.css" type ="text/css">
+<style> 
+ a {cursor:pointer;}
+</style>
+<meta charset="utf-8">
+<title>PolishWords</title>
+</head>
+
+<body style="background-image:url(Asset/PL%20flag_learning.JPG);background-repeat:no-repeat; overflow:hidden;">
+<script type="text/javascript">
+
+	function playTak(){
+	  var sound = document.getElementById("tak");
+	  sound.play();	
+	}
+	
+	function playNie(){
+	  var sound = document.getElementById("nie");
+	  sound.play();	
+	}
+	
+	function playDziekuje(){
+	  var sound = document.getElementById("dziekuje");
+	  sound.play();	
+	}
+	
+	function playProsze(){
+	  var sound = document.getElementById("prosze");
+	  sound.play();	
+	}
+	
+	function playPrzepraszam(){
+	  var sound = document.getElementById("przepraszam");
+	  sound.play();	
+	}
+	
+	function playDzien(){
+	  var sound = document.getElementById("dzien");
+	  sound.play();	
+	}
+	
+	function playDobranoc(){
+	  var sound = document.getElementById("dobranoc");
+	  sound.play();	
+	}
+	
+	function playCzesc(){
+	  var sound = document.getElementById("czesc");
+	  sound.play();	
+	}
+	
+	function playMilo(){
+	  var sound = document.getElementById("milo");
+	  sound.play();	
+	}
+		
+	function playJak(){
+	  var sound = document.getElementById("jak");
+	  sound.play();	
+	}
+		
+	function playMam(){
+	  var sound = document.getElementById("mam");
+	  sound.play();	
+	}
+		
+	function playCJak(){
+	  var sound = document.getElementById("cjak");
+	  sound.play();	
+	}
+		
+	function playWporzadku(){
+	  var sound = document.getElementById("wporzadku");
+	  sound.play();	
+	}
+		
+	function playNiezbyt(){
+	  var sound = document.getElementById("niezbyt");
+	  sound.play();	
+	}
+
+</script>
+<div id="title">
+<p> Learn the Polish Language </p>
+</br>
+<div id="papyrus" >
+ <div id="img"> <img src="Asset/papyrus.gif" width="550" height="100%"/> </div>
+
+<table id="table_lang" style="line-height:30px;">
+  <tr>
+    <td style="font-size:25px;"> English </td>
+    <td style="font-size:25px;"> Polish </td>
+    <td style="font-size:25px;"> Sound </td>
+  </tr>
+  <tr>
+    <td> Yes </td>
+    <td>Tak</td>
+    <td><a onclick="playTak();"><img src="Asset/soundon1.png" width="25" height="25" />
+    <audio id="tak" src="Asset/wav files/Tak.wav" hidden="true"></audio>
+    </a></td>
+  </tr>
+  <tr>
+    <td> No </td>
+    <td> Nie</td>
+    <td><a onclick="playNie();"><img src="Asset/soundon1.png" width="25" height="25" />
+    <audio id="nie" src="Asset/wav files/Nie.wav" hidden="true"></audio>
+    </a></td>
+  </tr>
+  <tr>
+    <td> Thank you </td>
+    <td>Dziękuję</td>
+    <td><a onclick="playDziekuje();"><img src="Asset/soundon1.png" width="25" height="25" />
+    <audio id="dziekuje" src="Asset/wav files/Dziękuję.wav" hidden="true"></audio>
+    </a></td>
+  </tr>
+  <tr>
+    <td> Please </td>
+    <td>Proszę</td>
+    <td><a onclick="playProsze();"><img src="Asset/soundon1.png" width="25" height="25" />
+    <audio id="prosze" src="Asset/wav files/Proszę.wav" hidden="true"></audio>
+    </a></td>
+  </tr>
+  <tr>
+    <td> Excuse me </td>
+    <td>Przepraszam</td>
+    <td><a onclick="playPrzepraszam();"><img src="Asset/soundon1.png" width="25" height="25" />
+    <audio id="przepraszam" src="Asset/wav files/Przepraszam.wav" hidden="true"></audio>
+    </a></td>
+  </tr>
+  <tr>
+    <td> Bye Bye </td>
+    <td>Cześć</td>
+    <td><a onclick="playCzesc();"><img src="Asset/soundon1.png" width="25" height="25" />
+    <audio id="czesc" src="Asset/wav files/Cześć.wav" hidden="true"></audio>
+    </a></td> 
+  </tr> 
+  <tr>
+    <td> Goodmorning </td>
+    <td>Dzień dobry</td>
+    <td><a onclick="playDzien();"><img src="Asset/soundon1.png" width="25" height="25" />
+    <audio id="dzien" src="Asset/wav files/Dzień dobry.wav" hidden="true"></audio>
+    </a></td>
+  </tr>
+  <tr>
+    <td> Goodnight </td>
+    <td>Dobranoc</td>
+    <td><a onclick="playDobranoc();"><img src="Asset/soundon1.png" width="25" height="25" />
+    <audio id="dobranoc" src="Asset/wav files/Dobranoc.wav" hidden="true"></audio>
+    </a></td>
+  </tr>
+  <tr>
+    <td> Hello</td>
+    <td>Cześć</td>
+    <td><a onclick="playCzesc();"><img src="Asset/soundon1.png" width="25" height="25" />
+    <audio id="czesc" src="Asset/wav files/Cześć.wav" hidden="true"></audio>
+    </a></td> 
+  </tr>
+  <tr>
+    <td> Nice to meet you </td>
+    <td>Miło Cię spotkać</td>
+    <td><a onclick="playMilo();"><img src="Asset/soundon1.png" width="25" height="25" />
+    <audio id="milo" src="Asset/wav files/Miło Cię spotkać.wav" hidden="true"></audio>
+    </a></td> 
+  </tr>
+  <tr>
+    <td> What’s your name? </td>
+    <td>Jak masz na imię?</td>
+    <td><a onclick="playJak();"><img src="Asset/soundon1.png" width="25" height="25" />
+    <audio id="jak" src="Asset/wav files/Jak masz na imię.wav" hidden="true"></audio>
+    </a></td> 
+  </tr>
+  <tr>
+    <td> My name is </td>
+    <td>Mam na imię</td>
+    <td><a onclick="playMam();"><img src="Asset/soundon1.png" width="25" height="25" />
+    <audio id="mam" src="Asset/wav files/Mam na imię.wav" hidden="true"></audio>
+    </a></td> 
+  </tr>
+  <tr>
+    <td> How are you? </td>
+    <td>CJak się masz?</td>
+    <td><a onclick="playCJak();"><img src="Asset/soundon1.png" width="25" height="25" />
+    <audio id="cjak" src="Asset/wav files/CJak się masz.wav" hidden="true"></audio>
+    </a></td> 
+  </tr>
+  <tr>
+    <td> I’m fine</td>
+    <td>W porządku</td>
+    <td><a onclick="playWporzadku();"><img src="Asset/soundon1.png" width="25" height="25" />
+    <audio id="wporzadku" src="Asset/wav files/W porządku.wav" hidden="true"></audio>
+    </a></td> 
+  </tr>
+  <tr>
+    <td> I’m not fine </td>
+    <td>Niezbyt dobrze</td>
+    <td><a onclick="playNiezbyt();"><img src="Asset/soundon1.png" width="25" height="25" />
+    <audio id="niezbyt" src="Asset/wav files/Niezbyt dobrze.wav" hidden="true"></audio>
+    </a></td> 
+  </tr>
+</table>
+</div>
+</div>
+<div id="back"> <a href="ChooseCountry.html"><img src="Asset/back.png" width="80" height="80"/></a></div> 
+<div id="home"> <a href="Index2.html"><img src="Asset/home.png" width="80" height="80"/></a></div>
+</body>
+</html>
