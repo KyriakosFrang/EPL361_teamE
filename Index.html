@@ -6,49 +6,61 @@
 <title>Menu</title>
 </head>
 
-<body>
-<div  id= "body2">
-  <div id="mainPage">
-   <!-- <audio id="anthem" src="Asset/kickstarter.mp3" autoplay loop></audio> <!-- convert to WAV???? -->
-    <!--  <img src="Asset/agapoula.jpg" width="500" height="500"> --> 
-   <!-- <script type="text/javascript">
-	
-	function repeatSong(){
-		var anthem = document.getElementById("anthem");
-	anthem.play();
+<body onLoad="do_first();">
+<script type="text/javascript">
+var dialog ;
+var yes;
+var no;
+	function do_first(){
+ dialog = document.getElementById("dialog_exit");
+ yes = document.getElementById("yes");
+ no =  document.getElementById("no");
 	}
-	
-	self.(repeatSong() , "2s");
-	
-	
-</script>-->
-    <div id="mainImage" width="50%" height="50%">
-      <div id="cloud"> <img src="Asset/bubble1.png" width="297" height="222" id="cloudimg">
-      </div>
+	function Exit(){
+		dialog.style.visibility = "visible";
+		
+	}
+	function Dialog_exit(){
+		top.open('','_self',''); top.close();
+		window.close();
+	}
+	function cancel(){
+		dialog.style.visibility = "hidden";
+	}
+
+</script>
+<div  id= "body2" >
+  <div id="mainPage">
+    <audio id="anthem" src="Asset/kickstarter.mp3" autoplay loop></audio>
+    <!-- convert to WAV???? -->
+    
+    <div id="mainImage" >
+      <div id="cloud"> <img src="Asset/bubble1.png" width="297px" height="222px" id="cloudimg"> </div>
       <img id="garos" src="Asset/logo.gif" width="600px" height="600px" >
-     
       <div id="list_menu">
         <ul>
-          <li><a href="#">Learning</a></li>
-          <li></li>
-          <li><a href="#">Games</a></li>
-          <li></li>
+          <li><a class="entypo-star" href="LearningOption.html">Learning</a> </li>
+          <li><a href="ChooseGame.html">Games</a></li>
           <li></li>
           <li></li>
-          <li><a href="#">High Scores</a></li>
           <li></li>
-          <li><a href="#">How To Play</a></li>
+          <li><a  href="HighScore.html">High Scores</a></li>
           <li></li>
-          <li><a href="#">Credits</a></li>
+          <li><a  href="HowToPlay.html">How To Play</a></li>
           <li></li>
-          <li><a href="#">Exit</a></li>
+          <li><a  href="#">Credits</a></li>
+          <li></li>
+          <li><a href="#" onClick="Exit();">Exit</a></li>
         </ul>
       </div>
-
     </div>
   </div>
- 
-
+  <div id="dialog_exit" >
+  		<h2>Are you sure?</h2>
+        <div id="yes"> <a onClick="Dialog_exit();"><img src="Asset/tick.png" width="128" height="128" /></a> </div>
+        <div id="no"> <a onClick="cancel();"><img src="Asset/remove.png" width="128" height="128"/> </a> </div>
+  </div>
 </div>
+
 </body>
 </html>
