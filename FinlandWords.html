@@ -1,0 +1,226 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<link rel="stylesheet" href="Words.css" type ="text/css">
+<style> 
+ a {cursor:pointer;}
+</style>
+<meta charset="utf-8">
+<title>FinishWords</title>
+</head>
+
+<body style="background-image:url(Asset/The%20Finnish%20flaglearning.png); background-repeat:no-repeat; overflow:hidden;">
+<script type="text/javascript">
+
+	function playKylla(){
+		var sound = document.getElementById("kylla");
+		sound.play();	
+	}
+	
+	function playEi(){
+		var sound = document.getElementById("ei");
+		sound.play();	
+	}
+	
+	function playKiitos(){
+		var sound = document.getElementById("kiitos");
+		sound.play();	
+	}
+	
+	function playAnteeksi(){
+		var sound = document.getElementById("anteeksi");
+		sound.play();	
+	}
+	
+	function playHeiHei(){
+		var sound = document.getElementById("heihei");
+	    sound.play();	
+	}
+	
+	function playHyvaa(){
+		var sound = document.getElementById("hyvaa");
+	    sound.play();	
+	}
+	
+	function playHyvaa2(){
+		var sound = document.getElementById("hyvva2");
+	    sound.play();	
+	}
+		
+	function playHei(){
+		var sound = document.getElementById("hei");
+	    sound.play();	
+	}
+	
+	function playKiva(){
+		var sound = document.getElementById("kiva");
+	    sound.play();	
+	}
+	
+	function playMika(){
+		var sound = document.getElementById("mika");
+	    sound.play();	
+	}
+	
+	function playMinun(){
+		var sound = document.getElementById("minun");
+	    sound.play();	
+	}
+	
+	function playMita(){
+		var sound = document.getElementById("mita");
+	    sound.play();	
+	}
+		
+	function playMinulle(){
+		var sound = document.getElementById("minulle");
+	    sound.play();	
+	}
+	
+	function playMinulle2(){
+		var sound = document.getElementById("minulle2");
+	    sound.play();	
+	}
+	
+	function playJoo(){
+		var sound = document.getElementById("joo");
+	    sound.play();	
+	}
+	
+	function playMoiMoi(){
+		var sound = document.getElementById("moimoi");
+	    sound.play();	
+	}
+	
+	function playMoi(){
+		var sound = document.getElementById("moi");
+	    sound.play();	
+	}
+</script>
+<div id="title">
+  <p> Learn the Finish Language </p>
+  </br>
+  <div id="papyrus" >
+    <div id="img"> <img src="Asset/papyrus.gif" width="575" height="700";/> </div>
+    <table id="table_lang" style="line-height:30px;">
+      <tr>
+        <td style="font-size:25px;">English</td>
+        <td style="font-size:25px;">Finish </td>
+        <td style="font-size:25px;">Sound</td>
+      </tr>
+      <tr>
+        <td> Yes </td>
+        <td> Kyllä (colloquial: joo) </td>
+        <td><a  onclick="playKylla();"><img src="Asset/soundon1.png" width="25" height="25" />
+          <audio id ="kylla" src="Asset/wav files/Kyllä.wav" hidden="true"></audio></a>
+          <a onclick="playJoo();"><img src="Asset/soundon1.png" width="25" height="25" />
+          <audio id="joo" src="Asset/wav files/Joo.wav" hidden="true"></audio></a>
+         </td>
+      </tr>
+      <tr >
+        <td> No </td>
+        <td> Ei </td>
+        <td><a onclick="playEi();"><img src="Asset/soundon1.png" width="25" height="25" />
+        <audio id="ei" src="Asset/wav files/Ei.wav" hidden="true"></audio>
+        </a></td>
+      </tr>
+      <tr>
+        <td> Thank you </td>
+        <td> Kiitos </td>
+        <td><a onclick="playKiitos();"><img src="Asset/soundon1.png" width="25" height="25" />
+        <audio id="kiitos" src="Asset/wav files/Kiitos.wav" hidden="true"></audio>
+        </a></td>
+      </tr>
+      <tr>
+        <td> Please </td>
+        <td> Not Exists </td>
+        <td><img src="Asset/soundoff.png" width="25" height="25" /></td>
+      </tr>
+      <tr>
+        <td> Excuse me </td>
+        <td> Anteeksi</td>
+        <td><a onclick="playAnteeksi();"><img src="Asset/soundon1.png" width="25" height="25" />
+        <audio id="anteeksi" src="Asset/wav files/Anteeksi.wav" hidden="true"></audio>
+        <a></td>
+      </tr>
+      <tr>
+        <td> Bye Bye </td>
+        <td>Hei Hei (coll.:moi moi)</td>
+        <td><a onclick="playHeiHei();"><img src="Asset/soundon1.png" width="25" height="25" />
+        <audio id="heihei" src="Asset/wav files/Hei Hei.wav" hidden="true"></audio></a>
+        <a onclick="playMoiMoi();"><img src="Asset/soundon1.png" width="25" height="25" />
+        <audio id="moimoi" src="Asset/wav files/Moi Moi.wav" hidden="true"></audio></a>
+        </td>
+      </tr>
+      <tr>
+        <td> Goodmorning </td>
+        <td>Hyvää huomenta</td>
+        <td> <a onclick="playHyvaa();"><img src="Asset/soundon1.png" width="25" height="25" />
+        <audio id="hyvaa" src="Asset/wav files/Hyvää+huo...wav" hidden="true"></audio>
+        </a></td>
+      </tr>
+      <tr>
+        <td> Goodnight </td>
+        <td>Hyvää yötä</td>
+        <td><a onclick="playHyvaa2();"><img src="Asset/soundon1.png" width="25" height="25" />
+        <audio id="hyvva2" src="Asset/wav files/Hyvää+yöt...wav" hidden="true"></audio>
+        </a></td>
+      </tr>
+      <tr>
+        <td> Hello</td>
+        <td>Hei (colloquial: moi)</td>
+        <td><a onclick="playHei();"><img src="Asset/soundon1.png" width="25" height="25" />
+        <audio id="hei" src="Asset/wav files/Hei.wav" hidden="true"></audio></a>
+        <a onclick="playMoi();"><img src="Asset/soundon1.png" width="25" height="25" />
+        <audio id="moi" src="Asset/wav files/Moi.wav" hidden="true"></audio></a>
+        </td>
+      </tr>
+      <tr>
+        <td> Nice to meet you </td>
+        <td>Kiva tavata</td>
+        <td><a onclick="playKiva();"><img src="Asset/soundon1.png" width="25" height="25" />
+        <audio id="kiva" src="Asset/wav files/Kiva tavata.wav" hidden="true"></audio>
+        </a></td>
+      </tr>
+      <tr>
+        <td> What’s your name? </td>
+        <td>Mikä sinun nimesi on?</td>
+        <td><a onclick="playMika();"><img src="Asset/soundon1.png" width="25" height="25" />
+        <audio id="mika" src="Asset/wav files/Mikä+sinu...wav" hidden="true"></audio>
+        </a></td>
+      </tr>
+      <tr>
+        <td> My name is </td>
+        <td>Minun nimeni on</td>
+        <td><a onclick="playMinun();"><img src="Asset/soundon1.png" width="25" height="25" />
+        <audio id="minun" src="Asset/wav files/Minun nimeni on....wav" hidden="true"></audio>
+        </a></td>
+      </tr>
+      <tr>
+        <td> How are you? </td>
+        <td>Mitä kuuluu?</td>
+        <td><a onclick="playMita();"><img src="Asset/soundon1.png" width="25" height="25" />
+        <audio id="mita" src="Asset/wav files/Mitä+kuul...wav" hidden="true"></audio>
+        </a></td>
+      </tr>
+      <tr>
+        <td> I’m fine</td>
+        <td>Minulle kuuluu hyvää.</td>
+        <td><a onclick="playMinulle();"><img src="Asset/soundon1.png" width="25" height="25" />
+        <audio id="minulle" src="Asset/wav files/Minulle k...wav" hidden="true"></audio>
+        </a></td>
+      </tr>
+      <tr>
+        <td> I’m not fine </td>
+        <td>Minulle ei kuulu hyvää.</td>
+        <td><a onclick="playMinulle2();"><img src="Asset/soundon1.png" width="25" height="25" />
+        <audio id="minulle2" src="Asset/wav files/Mnulle ei.. (1).wav" hidden="true"></audio>
+        </a></td>
+      </tr>
+    </table>
+  </div>
+</div>
+<div id="back"> <a href="ChooseCountry.html"><img src="Asset/back.png" width="80" height="80"/></a></div> 
+<div id="home"> <a href="Index2.html"><img src="Asset/home.png" width="80" height="80"/></a></div>
+</body>
+</html>
