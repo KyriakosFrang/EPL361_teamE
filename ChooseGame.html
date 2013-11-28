@@ -1,0 +1,190 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<link rel="stylesheet" href="GameChoice.css" type ="text/css">
+<meta charset="utf-8">
+<link rel="icon" 
+      href="Asset/euro_flag.jpg" />
+
+<title>ChooseGame</title>
+<style type="text/css">
+.show {
+	animation-timing-function:linear;
+	animation-delay:0s;
+	animation-name:  choose;
+	animation-duration:.5s;
+	animation-iteration-count:1;
+	animation-play-state:running;
+	animation-fill-mode: forwards;
+	-webkit-animation-timing-function:linear;
+	-webkit-animation-delay:0s;
+	-webkit-animation-name:  choose;
+	-webkit-animation-duration:.5s;
+	-webkit-animation-iteration-count:1;
+	-webkit-animation-play-state:running;
+	-webkit-animation-fill-mode: forwards;
+}
+@keyframes choose /* Safari and Chrome */ {
+ from {
+visibility:visible;
+ transform:scale(0, 0);
+}
+to {
+	visibility:visible;
+}
+}
+@-webkit-keyframes choose /* Safari and Chrome */ {
+ from {
+visibility:visible;
+ -webkit-transform:scale(0, 0);
+}
+to {
+	visibility:visible;
+}
+}
+/***************************************************/
+.go {
+	animation-timing-function:linear;
+	animation-delay:0s;
+	animation-name:  go;
+	animation-duration:.5s;
+	animation-iteration-count:1;
+	animation-play-state:running;
+	animation-fill-mode: forwards;
+	-webkit-animation-timing-function:linear;
+	-webkit-animation-delay:0s;
+	-webkit-animation-name:  go;
+	-webkit-animation-duration:.5s;
+	-webkit-animation-iteration-count:1;
+	-webkit-animation-play-state:running;
+	-webkit-animation-fill-mode: forwards;
+}
+ @keyframes go /* Safari and Chrome */ {
+ from {
+visibility:visible;
+}
+to {
+	transform:scale(0, 0);
+}
+}
+ @-webkit-keyframes go /* Safari and Chrome */ {
+ from {
+visibility:visible;
+}
+to {
+	-webkit-transform:scale(0, 0);
+}
+}
+</style>
+</head>
+
+<body onLoad="palayMusic(); ">
+<script type="text/javascript">
+
+
+/***********************************************************************************************/
+
+
+/***********************************************************************************************/
+	function palayMusic(){
+		var contain = document.getElementById("container");
+		 contain.style.backgroundImage = "url(Asset/cyprusfinal1.gif)"
+		var Images = [ "url(Asset/finlandfinal.gif)"  , 
+		  "url(Asset/italy.jpg)" ,  "url(Asset/polandfinal.gif)" ,  "url(Asset/spain.jpg)",
+		  "url(Asset/spain.jpg)" , "url(Asset/romaniafinal.gif" , "url(Asset/cyprusfinal1.gif)"];
+	var is_firefox = navigator.userAgent.indexOf('Firefox');
+	
+	if(is_firefox !=-1){
+			var curImgId = 0;
+    		var numberOfImages = 6;
+			setInterval(function dosome() { contain.style.backgroundImage = Images[curImgId];
+			curImgId = (curImgId + 1) % numberOfImages;
+			} , 1700);
+		
+	}
+		var music = document.getElementById("music");
+		music.play();	
+		
+	}
+
+	var choose = document.getElementById("choose");
+
+	function show_choose(){
+		 document.getElementById("choose").className ='show';		
+	}
+	function hidde_choose(){
+		 document.getElementById("choose").className ='go';
+	}
+
+
+</script>
+<div id="container">
+  <div id="header">
+    <h2>Choose a game to play!</h2>
+  </div>
+  <div id="main"> <img id="garos" src="Asset/logo.gif" width="600px" height="600px" >
+    <div id="list_menu">
+      <ul>
+        <li><a  href="#" onClick="show_choose();">Matching</a> </li>
+        <li></li>
+        <li><a href="SpotTheCountry.html">Spot The Country</a></li>
+        <li></li>
+        <li><a  href="who_knows.html">Who Knows?</a></li>
+        <li></li>
+          <li><a  href="Index2.html">Home</a></li>
+      </ul>
+    </div>
+  </div>
+  <audio id="music"  autoplay loop>
+    <source src="Asset/background_sounds/Payday.ogg" >
+    <source src="Asset/background_sounds/Payday.mp3" >
+  </audio>
+  <div id="choose">
+    <p> Choose Country </p>
+    <div id="cancel"> <a href="#" onClick="hidde_choose();"><img id="canc" src="Asset/cancel.png" width="50" height="50"/></a> </div>
+    <div id="cy" onClick="cyp()"> <a ><img id="cyflag" src="Asset/CY2.png" width="200" height="143"/ alt="Cyprus" /> </a> </div>
+    <div id="fin" onClick="finl()"> <a ><img id="finlandflag" src="Asset/The Finnish flag2.png" width="200" height="154" alt="Finland" /> </a> </div>
+    <div id="rom" onClick="roma()"> <a ><img id="romaniaflag" src="Asset/romania2.png" width="200" height="146" alt="Romania" /> </a> </div>
+    <div id="pol" onClick="pola()"> <a><img id="polandflag" src="Asset/PL flag2.png" width="200" height="140" alt="Poland" /> </a> </div>
+    <div id="ita" onClick="ital()"> <a><img id="italyflag" src="Asset/italy2.png" width="200" height="125" alt="Italy" /> </a> </div>
+    <div id="spn" onClick="spai()"><a><img id="spainflag"src="Asset/Spanish_Flag.png" width="200" height="113" alt="Spain"/> </a></div>
+  </div>
+</div>
+
+<script>
+
+	function cyp(){
+		var url = "matching.html?1";
+		window.location.href = url;
+	}
+	
+	function finl(){
+		var url = "matching.html?2";
+		window.location.href = url;
+	}
+	
+	function roma(){
+		var url = "matching.html?3";
+		window.location.href = url;
+	}
+	
+	function pola(){
+		var url = "matching.html?4";
+		window.location.href = url;
+	}
+	
+	function ital(){
+		var url = "matching.html?5";
+		window.location.href = url;
+	}
+	
+	function spai(){
+		var url = "matching.html?6";
+		window.location.href = url;
+	}
+	
+</script>
+
+
+</body>
+</html>
