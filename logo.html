@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<link rel="stylesheet" href="logo.css" type ="text/css">
+<meta charset="utf-8">
+<link rel="icon" 
+      href="Asset/icon_euro.png" />
+<title>Logo</title>
+</head>
+
+<body onLoad="first();">
+<script type="text/javascript">
+function first(){
+	document.getElementById("sound").play();
+	self.setTimeout('gotoMainMenu()', 6000); 
+}
+	function gotoMainMenu ( ) {
+document.location="Index.html";
+}
+
+
+
+	</script>
+<audio id="sound">
+  <source src="Asset/background_sounds/logo.ogg"type="audio/ogg"  hidden=" true">
+  <source src="Asset/background_sounds/logo.mp3"type="audio/mpeg"  hidden=" true" >
+</audio>
+<div id="container">
+  <div id="header"> <img src="Asset/eu_comenious.gif" width="700" height="200"/> </div>
+  <div id="main_text" > <img src="Asset/gameLogo.gif" name="image" width="600" height="600" id="image"> </div>
+</div>
+</body>
+</html>
