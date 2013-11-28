@@ -1,0 +1,1136 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<script src="jquery-1.10.2.min.js"></script>
+<meta charset="utf-8">
+<title>Spot The Country</title>
+<link href="SpotTheCountry.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+.show {
+	animation-timing-function:linear;
+	animation-delay:0s;
+	animation-name:  choose;
+	animation-duration:.5s;
+	animation-iteration-count:1;
+	animation-play-state:running;
+	animation-fill-mode: forwards;
+	-webkit-animation-timing-function:linear;
+	-webkit-animation-delay:0s;
+	-webkit-animation-name:  choose;
+	-webkit-animation-duration:.5s;
+	-webkit-animation-iteration-count:1;
+	-webkit-animation-play-state:running;
+	-webkit-animation-fill-mode: forwards;
+}
+@keyframes choose /* Safari and Chrome */ {
+ from {
+visibility:visible;
+ transform:scale(0, 0);
+}
+to {
+	visibility:visible;
+}
+}
+@-webkit-keyframes choose /* Safari and Chrome */ {
+ from {
+visibility:visible;
+ -webkit-transform:scale(0, 0);
+}
+to {
+	visibility:visible;
+}
+}
+/***************************************************/
+.go {
+	animation-timing-function:linear;
+	animation-delay:0s;
+	animation-name:  go;
+	animation-duration:.5s;
+	animation-iteration-count:1;
+	animation-play-state:running;
+	animation-fill-mode: forwards;
+	-webkit-animation-timing-function:linear;
+	-webkit-animation-delay:0s;
+	-webkit-animation-name:  go;
+	-webkit-animation-duration:.5s;
+	-webkit-animation-iteration-count:1;
+	-webkit-animation-play-state:running;
+	-webkit-animation-fill-mode: forwards;
+}
+ @keyframes go /* Safari and Chrome */ {
+ from {
+visibility:visible;
+}
+to {
+	transform:scale(0, 0);
+}
+}
+ @-webkit-keyframes go /* Safari and Chrome */ {
+ from {
+visibility:visible;
+}
+to {
+	-webkit-transform:scale(0, 0);
+}
+}
+</style>
+</head>
+
+<body>
+<audio id="win_sound" hidden="true">
+  <source src="Asset/words_sounds/Congratulations.ogg" >
+  <source src="Asset/words_sounds/Congratulations.mp3" >
+</audio>
+<audio id="lose_sound" hidden="true">
+  <source src="Asset/words_sounds/Try again.ogg" >
+  <source src="Asset/words_sounds/Try again.mp3" >
+</audio>
+<audio autoplay loop hidden="true">
+  <source src="Asset/background_sounds/Locally_Sourced.ogg" >
+  <source src="Asset/background_sounds/Locally_Sourced.mp3" >
+</audio>
+<div id="container">
+  <div id="header">
+    <ul id="header_menu">
+      <li style="color:#9F0;">Lives: <img id="life1" src="Asset/star.png" width="40px" height="40px"> <img id="life2" src="Asset/star.png" width="40" height="40"> <img id="life3" src="Asset/star.png" width="40" height="40"></li>
+      <li id="lev" style="color:#F00;" >Level: 1/9</li>
+      <li id="menu_opt"><a href="#">Menu</a>
+        <ul class="drop_down">
+          <li><a href="SpotTheCountry.html">Replay</a></li>
+          <li><a href="ChooseGame.html">Exit to game</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  <div id="main">
+    <div id="theQuest">
+      <p id="name">Country</p>
+    </div>
+    <div id="cloud_win"><img src="Asset/cloud_win.png"  width="128" height="128"/></div>
+    <div id="cloud_korou"><img src="Asset/cloud_korou.png" width="128" height="128"/></div>
+    <div id="korou"> <img id="korourou" src="" width="150px" height="250px"/> </div>
+    <div id="questions">
+      <div id="map" > <img id="europe" src="Asset/europe.gif" width="700" height="526"/></div>
+      <div id="spain"><a id="spa_c" name="Spain" onclick="check1(this.name)"><img src="Asset/spainmap.gif" name="spain_map" width="165" height="180" id="spain_map" /></a></div>
+      <div id="italy"><a id="ita_c" name="Italy" onclick="check1(this.name)"> <img src="Asset/italymap.gif" width="175" height="195" id="italy_map"/></a></div>
+      <div id="poland"> <a id="pol_c" name="Poland" onclick="check1(this.name)"> <img src="Asset/polandmap.gif" width="170" height="140" id="poland_map"/></a></div>
+      <div id="finland"> <a id="fin_c" name="Finland" onclick="check1(this.name)"> <img src="Asset/finlandmap.gif" width="165" height="140" id="finland_map"/></div>
+      <div id="romania"> <a id="rom_c" name="Romania" onclick="check1(this.name)"> <img src="Asset/romaniamap.gif" width="210" height="100" id="romania_map"/> </a></div>
+      <div id="cyprus"> <a id="cy_c" name="Cyprus" onclick="check1(this.name)"> <img src="Asset/cyprusmap.gif"width="120" height="70" id="cyprus_map"/> </a></div>
+    </div>
+    <div id="questions1">
+      <div id="unselect"> <a id="unpr" value="" onClick="unpress()">unpress</a> </div>
+      <div id="ans1" class="style1"><a id="first_word" name="" onclick="presscountry(this.name,this.id)"></a></div>
+      <div id="ans2" class="style1"><a id="second_sound" name="" onclick="playsec();presscountry(this.name,this.id);"> <img src="Asset/soundon1.png" width="50" height="50"/>
+        <audio id="sec" src="" hidden="true"> </audio>
+        </a></div>
+      <div id="ans3" class="style1"><a id="third_word" name="" onclick="presscountry(this.name,this.id)"></a></div>
+      <div id="ans4" class="style1"><a id="forth_sound" name="" onclick="playfou();presscountry(this.name,this.id);"> <img src="Asset/soundon1.png" width="50" height="50"/>
+        <audio id="fou" src="" hidden="true"></audio>
+        </a></div>
+      <div id="cy" class="answers2" > <a id="cy_flag" name="Cyprus" onclick="pressflag(this.name)"><img id="cyflag" src="Asset/CY2.png" width="140" height="80"/ alt="Cyprus flag" /> </a> </div>
+      <div id="fin" class="answers2" > <a id="fin_flag" name="Finland" onclick="pressflag(this.name)"><img id="finlandflag" src="Asset/The Finnish flag2.png" width="140" height="80" alt="Finland flag" /> </a> </div>
+      <div id="rom" class="answers2"> <a id="rom_flag" name="Romania" onclick="pressflag(this.name)"><img id="romaniaflag" src="Asset/romania2.png" width="140" height="80" alt="Romania flag" /> </a> </div>
+      <div id="pol" class="answers2"> <a id="pol_flag" name="Poland" onclick="pressflag(this.name)"><img id="polandflag" src="Asset/PL flag2.png" width="140" height="80" alt="Poland flag" /> </a> </div>
+      <div id="ita" class="answers2"> <a id="ita_flag" name="Italy" onclick="pressflag(this.name)"><img id="italyflag" src="Asset/italy2.png" width="140" height="80" alt="Italy flag" /> </a> </div>
+      <div id="spn" class="answers2"><a id="spa_flag" name="Spain" onclick="pressflag(this.name)"><img id="spainflag"  src="Asset/Spanish_Flag.png" width="140" height="80" alt="Spain flag"/> </a></div>
+    </div>
+    <div id="msg_congrats"  >
+      <section id="message">
+        <p>Congratulation!</p>
+        <p>you complete the game</p>
+        <p id="sc1"> your score is #</p>
+        <p id="tim1"># seconds!</p>
+      </section>
+      <div id="exit"> <a id="ex" href="ChooseGame.html"  >Exit</a></div>
+      <div id="replay"  > <a id="ex" href="SpotTheCountry.html">Replay</a></div>
+    </div>
+    <div id="msg_fail" >
+      <section id="message">
+        <p>You Lose!</p>
+        <p>Your score is</p>
+        <p id="sc2"># Points</p>
+        <p id="tim2"># seconds</p>
+      </section>
+      <div id="exit"> <a id="ex" href="ChooseGame.html"  >Exit</a></div>
+      <div id="replay"  > <a id="ex" href="SpotTheCountry.html" >Replay</a></div>
+    </div>
+    <div id="cloud_lose"><img src="Asset/cloud_loose.png" width="128" height="128"/> </div>
+    <div id="cloud_adropos"><img src="Asset/cloud_adropos.png" width="128" height="128"/> </div>
+    <div id="andropos"> <img id="adropospos" src="" width="150px" height="250px"/> </div>
+    <div id="footer">
+      <div id="time"> <img src="Asset/timer.png" width="50" height="50" /> </div>
+      <div id="timer">0</div>
+      <div id="points">
+        <section id="current_points">POINTS: 0 </section>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+document.getElementById("korourou").src="Asset/korou.gif";
+document.getElementById("adropospos").src="Asset/adropos.gif";
+
+/****************************Clouds*********************************************/
+function show_cloud(sh){
+if(sh==1){
+document.getElementById("cloud_korou").className = 'show';
+}
+
+else if(sh==0){
+	document.getElementById("cloud_adropos").className = 'show';
+	
+}
+}
+function hide_cloud(sh){
+if(sh==1){
+document.getElementById("cloud_korou").className = 'go';
+}
+
+else if(sh==0){
+	document.getElementById("cloud_adropos").className = 'go';
+	
+}
+}
+
+
+
+function show_finalcloud(sh){
+if(sh==1){
+document.getElementById("win_sound").play();
+document.getElementById("cloud_win").className = 'show';
+document.getElementById("korourou").src= "Asset/GIF/korou.gif";
+
+}
+
+else if(sh==0){
+	document.getElementById("lose_sound").play();
+	document.getElementById("cloud_lose").className = 'show';
+	document.getElementById("adropospos").src="Asset/GIF/adropos.gif";
+	
+	
+}
+
+}
+
+function hide_finalcloud(sh){
+if(sh==1){
+document.getElementById("cloud_win").className = 'go';
+document.getElementById("korourou").src="Asset/korou.gif";
+}
+
+else if(sh==0){
+	document.getElementById("cloud_lose").className = 'go';
+	document.getElementById("adropospos").src="Asset/adropos.gif";
+	
+}
+}
+
+/**************************************************************************************************/
+
+
+
+
+
+
+////kir
+function show_matching_game(){
+		 document.getElementById("questions1").className ='show';		
+	}
+
+	function hidde_matching_game(){
+		 document.getElementById("questions1").className ='go';		
+	}
+
+	function show_map_game(){
+		 document.getElementById("questions").className ='show';
+		 document.getElementById("theQuest").className = 'show';		
+	}
+	function hidde_map_game(){
+		 document.getElementById("questions").className ='go';
+		 document.getElementById("theQuest").className = 'go';	
+	}
+	
+	
+	
+	
+	function show_fail(){
+		 document.getElementById("sc2").innerHTML =points+" POINTS";
+		 document.getElementById("tim2").innerHTML =(count-1)+" seconds";	
+		 document.getElementById("msg_fail").className ='show';	
+		timer.start("-1000", "-1000"); ////////// fevgei otan eisagw high score
+	}
+
+	function show_congrats(){
+		 
+		 document.getElementById("msg_congrats").className ='show';	
+		 timer.start("-1000", "-1000"); ////////// fevgei otan eisagw high score
+		 level=level-1;		////////// fevgei otan eisagw high score	
+	}
+
+	
+
+///////
+
+
+
+var count=0;//for time
+var points=0;//for points
+var lives=3;//for lives
+
+
+var countries_g1=new Array(6);
+countries_g1[0]="Cyprus";
+countries_g1[1]="Finland";
+countries_g1[2]="Italy";
+countries_g1[3]="Spain";
+countries_g1[4]="Romania";
+countries_g1[5]="Poland";
+
+
+var countries_g2=new Array(6);
+countries_g2[0]="Cyprus";
+countries_g2[1]="Finland";
+countries_g2[2]="Italy";
+countries_g2[3]="Spain";
+countries_g2[4]="Romania";
+countries_g2[5]="Poland";
+
+
+
+///tha exi diefthinsi arxeiou ixou edw
+var sounds_g2=new Array(6);
+sounds_g2[0]="Asset/COUNTRYSOUNDS/CYSOUND.ogg";
+sounds_g2[1]="Asset/COUNTRYSOUNDS/FINSOUND.ogg";
+sounds_g2[2]="Asset/COUNTRYSOUNDS/ITASOUND.ogg";
+sounds_g2[3]="Asset/COUNTRYSOUNDS/SPSOUND.ogg";
+sounds_g2[4]="Asset/COUNTRYSOUNDS/ROMSOUND.ogg";
+sounds_g2[5]="Asset/COUNTRYSOUNDS/POLSOUND.ogg";
+
+
+
+
+
+
+
+//gia antistoixisi me tous ixous sto value
+var sounds_g2_country=new Array(6);
+sounds_g2_country[0]="Cyprus";
+sounds_g2_country[1]="Finland";
+sounds_g2_country[2]="Italy";
+sounds_g2_country[3]="Spain";
+sounds_g2_country[4]="Romania";
+sounds_g2_country[5]="Poland";
+
+
+
+
+
+var index;
+var chgame=0; //what game? with map or with flags?
+var countergame1=0; //mexri7
+var countergame2=0; //mexri3
+var level=1;
+///////choose game
+
+function chooseplay(){
+	
+
+	
+	do{
+	chgame=Math.random()*2;
+			
+	
+	
+	chgame = (parseFloat(parseFloat(chgame).toString().substr(0,(parseFloat(chgame).toString().indexOf('.') > -1) ? (parseFloat(chgame).toString().indexOf('.')) : (parseFloat(chgame).					toString().length))))
+	
+	
+	if (chgame==0){
+		countergame1++;
+		if (countergame1<=6){	
+			pass=1;
+			set_country1();
+		}
+		else 
+			pass=0;
+	}
+	
+	else if (chgame==1){
+		countergame2++;	
+		if(countergame2<=3){
+			pass=1;	
+			set_country2();
+		}
+		else
+			pass=0;
+	}
+	
+	
+	/*if (countergame1>6 && countergame2>3){////////////////////////////////////////////////////////////////////////////////////////////////////////
+		alert("finish game");	
+		
+	}*/
+	
+	}while(pass==0);
+
+
+}
+
+
+/////
+
+chooseplay();
+
+
+//GAME1!!!
+
+function set_country1(){
+	
+	show_map_game();
+	hidde_matching_game();
+	
+	
+	do{
+		index=Math.random()*6;
+			
+	
+	
+	index = (parseFloat(parseFloat(index).toString().substr(0,(parseFloat(index).toString().indexOf('.') > -1) ? (parseFloat(index).toString().indexOf('.')) : (parseFloat(index).					toString().length))))	
+	
+	
+	}while(countries_g1[index]=="-2");
+	
+	document.getElementById("name").innerHTML=countries_g1[index];
+	countries_g1[index]="-2";
+	
+	
+}
+
+
+
+function check1(answer){
+if (document.getElementById("name").innerHTML==answer){ //correct
+	//alert("correct!"); sinefo correct
+	
+	
+	
+	level++;
+	points=points+10;
+	
+	if (level<=9){
+		setTimeout (function (){show_cloud(1);},500);
+		setTimeout (function (){hide_cloud(1);},2000);
+		//alert("finish level!"); /////////////////////
+		chooseplay();
+	}
+	else if(level>9){
+			var oldpoints=points;
+			points=points+(lives*20); ////////////points from lives
+			//alert ("you finish the game!\n your points: \n "+oldpoints+" + ("+lives+" lives *20 points) =\n"+points+"\n in "+count+"seconds!"); //////////////////////////////////////finish the game  if winner then  .... else replay or exit
+			document.getElementById("sc1").innerHTML ="Your score is: "+oldpoints +"+("+lives+"x20) = "+points+" POINTS";
+			document.getElementById("tim1").innerHTML =(count-1)+" seconds!";
+			
+			show_congrats();
+			setTimeout (function (){show_finalcloud(1);},2000);
+			setTimeout (function (){hide_finalcloud(1);},5000);	//minima final vathmologia me ixo k sinefo	
+	}
+	
+	
+	
+}
+else{ //wrong
+	if (points==0){
+		points=0;	
+	}
+	else{
+		points=points-10;	
+	}
+	lives--;
+			if (lives==2){
+				
+				document.getElementById("life3").style.visibility='hidden';
+
+			}
+			
+			else if (lives==1){
+				
+				document.getElementById("life2").style.visibility='hidden';
+
+			}
+			
+			else if (lives==0){
+				document.getElementById("life1").style.visibility='hidden';      
+
+				//alert ("YOU LOSE! you have "+points+" points in "+count+" seconds!");/////////////////////////////////////////exit game or replay
+				
+			show_fail();
+			setTimeout (function (){show_finalcloud(0);},2000);
+			setTimeout (function (){hide_finalcloud(0);},5000);	//minima wrong kai gif me sinnefo
+				
+			}
+	//alert("wrong!"); sinefo wrong	
+	if (lives!=0){
+	setTimeout (function (){show_cloud(0);},500);
+		setTimeout (function (){hide_cloud(0);},2000);
+	}
+}
+	
+	
+	
+			document.getElementById("current_points").innerHTML ="POINTS: " +points; ///////////////////
+			//document.getElementById("live").innerHTML = lives; ///////////////////
+			document.getElementById("lev").innerHTML = "Level: " + level+"/9"; ///////////////////
+	
+	
+}
+	
+///////
+
+
+
+
+
+
+
+
+
+
+
+
+
+//GAME2!!!	
+	var index2;
+	function set_country2(){
+		
+	show_matching_game();
+	hidde_map_game();//////krivw to 1o paixnidi
+	 
+	 
+	
+	
+	
+	document.getElementById("ans1").className = "answers";
+	document.getElementById("ans2").className = "answers";
+	document.getElementById("ans3").className = "answers";
+	document.getElementById("ans4").className = "answers";
+
+
+	document.getElementById("first_word").onclick = function () {
+  presscountry(this.name,this.id);
+  return false; // <-- to suppress the default link behaviour
+};
+document.getElementById("second_sound").onclick = function () {
+  playsec();presscountry(this.name,this.id);
+  return false; // <-- to suppress the default link behaviour
+};
+document.getElementById("third_word").onclick = function () {
+  presscountry(this.name,this.id);
+  return false; // <-- to suppress the default link behaviour
+};
+document.getElementById("forth_sound").onclick = function () {
+  playfou();presscountry(this.name,this.id);
+  return false; // <-- to suppress the default link behaviour
+};
+
+
+	
+	document.getElementById("cy").className = "answers2"; 
+	document.getElementById("fin").className = "answers2";
+	document.getElementById("rom").className = "answers2";
+	document.getElementById("pol").className = "answers2";
+	document.getElementById("ita").className = "answers2";
+	document.getElementById("spn").className = "answers2";
+
+
+	document.getElementById("cy_flag").onclick = function () {
+  pressflag(this.name);
+  return false; // <-- to suppress the default link behaviour
+};
+document.getElementById("fin_flag").onclick = function () {
+  pressflag(this.name);
+  return false; // <-- to suppress the default link behaviour
+};
+document.getElementById("rom_flag").onclick = function () {
+  pressflag(this.name);
+  return false; // <-- to suppress the default link behaviour
+};
+document.getElementById("pol_flag").onclick = function () {
+  pressflag(this.name);
+  return false; // <-- to suppress the default link behaviour
+};
+	
+document.getElementById("ita_flag").onclick = function () {
+  pressflag(this.name);
+  return false; // <-- to suppress the default link behaviour
+};
+document.getElementById("spa_flag").onclick = function () {
+  pressflag(this.name);
+  return false; // <-- to suppress the default link behaviour
+};
+	
+	
+	do{
+		index2=Math.random()*6;
+			
+	
+	
+	index2 = (parseFloat(parseFloat(index2).toString().substr(0,(parseFloat(index2).toString().indexOf('.') > -1) ? (parseFloat(index2).toString().indexOf('.')) : (parseFloat(index2).					toString().length))))	
+	
+	
+	}while(countries_g2[index2]=="-2");
+	
+	document.getElementById("first_word").innerHTML=countries_g2[index2]; ////simaia edw
+	document.getElementById("first_word").name=countries_g2[index2];
+	countries_g2[index2]="-2";
+	
+	
+	
+	
+	do{
+		index2=Math.random()*6;
+			
+	
+	
+	index2 = (parseFloat(parseFloat(index2).toString().substr(0,(parseFloat(index2).toString().indexOf('.') > -1) ? (parseFloat(index2).toString().indexOf('.')) : (parseFloat(index2).					toString().length))))	
+	
+	
+	}while(countries_g2[index2]=="-2");
+	 
+	document.getElementById("third_word").innerHTML=countries_g2[index2]; ///simaia edw
+	document.getElementById("third_word").name=countries_g2[index2];
+	countries_g2[index2]="-2";
+	
+	
+	
+	
+	do{
+		index2=Math.random()*6;
+			
+	
+	
+	index2 = (parseFloat(parseFloat(index2).toString().substr(0,(parseFloat(index2).toString().indexOf('.') > -1) ? (parseFloat(index2).toString().indexOf('.')) : (parseFloat(index2).					toString().length))))	
+	
+	
+	}while(sounds_g2[index2]=="-2");
+	
+	document.getElementById("sec").src=sounds_g2[index2]; ////edw ine to ref tou ixou.
+	document.getElementById("second_sound").name=sounds_g2_country[index2];
+	sounds_g2[index2]="-2";
+	
+	
+	
+	
+	
+	do{
+		index2=Math.random()*6;
+			
+	
+	
+	index2 = (parseFloat(parseFloat(index2).toString().substr(0,(parseFloat(index2).toString().indexOf('.') > -1) ? (parseFloat(index2).toString().indexOf('.')) : (parseFloat(index2).					toString().length))))	
+	
+	
+	}while(sounds_g2[index2]=="-2");
+	
+	document.getElementById("fou").src=sounds_g2[index2]; ////edw ine to ref tou ixou.
+	document.getElementById("forth_sound").name=sounds_g2_country[index2];
+	sounds_g2[index2]="-2";
+	
+	
+	document.getElementById("cy").className = "notVisible2";
+	document.getElementById("fin").className = "notVisible2";
+	document.getElementById("rom").className = "notVisible2";
+	document.getElementById("pol").className = "notVisible2";
+	document.getElementById("ita").className = "notVisible2";
+	document.getElementById("spn").className = "notVisible2";
+
+
+	document.getElementById("cy_flag").onclick = function () {
+  
+  return false; // <-- to suppress the default link behaviour
+};
+document.getElementById("fin_flag").onclick = function () {
+  
+  return false; // <-- to suppress the default link behaviour
+};
+document.getElementById("rom_flag").onclick = function () {
+  
+  return false; // <-- to suppress the default link behaviour
+};
+document.getElementById("pol_flag").onclick = function () {
+  
+  return false; // <-- to suppress the default link behaviour
+};
+	
+document.getElementById("ita_flag").onclick = function () {
+  
+  return false; // <-- to suppress the default link behaviour
+};
+document.getElementById("spa_flag").onclick = function () {
+  
+  return false; // <-- to suppress the default link behaviour
+};
+	
+}
+
+
+
+var value1;
+var value2;
+var chosen1='^'; //gia disable sta onomata otan ine swsto
+var splitted1=new Array(0); // >> >> >>
+var id1;     //>> >> >>
+
+function presscountry(val1,identity1){
+	value1=val1;
+	id1=identity1;
+	
+	document.getElementById("ans1").className = "notVisible";
+	document.getElementById("ans2").className = "notVisible";
+	document.getElementById("ans3").className = "notVisible";
+	document.getElementById("ans4").className = "notVisible";
+
+
+	document.getElementById("first_word").onclick = function () {
+  return false; // <-- to suppress the default link behaviour
+};
+document.getElementById("second_sound").onclick = function () {
+  return false; // <-- to suppress the default link behaviour
+};
+document.getElementById("third_word").onclick = function () {
+  return false; // <-- to suppress the default link behaviour
+};
+document.getElementById("forth_sound").onclick = function () {
+  return false; // <-- to suppress the default link behaviour
+};
+	
+	
+	
+	document.getElementById("cy").className = "answers2";
+	document.getElementById("fin").className = "answers2";
+	document.getElementById("rom").className = "answers2";
+	document.getElementById("pol").className = "answers2";
+	document.getElementById("ita").className = "answers2";
+	document.getElementById("spn").className = "answers2";
+
+
+	document.getElementById("cy_flag").onclick = function () {
+  pressflag(this.name);
+  return false; // <-- to suppress the default link behaviour
+};
+document.getElementById("fin_flag").onclick = function () {
+  pressflag(this.name);
+  return false; // <-- to suppress the default link behaviour
+};
+document.getElementById("rom_flag").onclick = function () {
+  pressflag(this.name);
+  return false; // <-- to suppress the default link behaviour
+};
+document.getElementById("pol_flag").onclick = function () {
+  pressflag(this.name);
+  return false; // <-- to suppress the default link behaviour
+};
+	
+document.getElementById("ita_flag").onclick = function () {
+  pressflag(this.name);
+  return false; // <-- to suppress the default link behaviour
+};
+document.getElementById("spa_flag").onclick = function () {
+  pressflag(this.name);
+  return false; // <-- to suppress the default link behaviour
+};
+	
+}
+
+
+
+
+
+var fin1=0;
+function pressflag(val2){
+	value2=val2;
+	if (value1==value2){ ///correct
+		//alert("correct2!!"); sineffo correct	
+		
+		
+		
+		
+		points=points+10;
+	
+	chosen1=chosen1+","+id1;
+	splitted1=chosen1.split(",");
+	
+	
+	document.getElementById("ans1").className = "answers";
+	document.getElementById("ans2").className = "answers";
+	document.getElementById("ans3").className = "answers";
+	document.getElementById("ans4").className = "answers";
+
+
+	document.getElementById("first_word").onclick = function () {
+  presscountry(this.name,this.id);
+  return false; // <-- to suppress the default link behaviour
+};
+document.getElementById("second_sound").onclick = function () {
+  playsec();presscountry(this.name,this.id);
+  return false; // <-- to suppress the default link behaviour
+};
+document.getElementById("third_word").onclick = function () {
+  presscountry(this.name,this.id);
+  return false; // <-- to suppress the default link behaviour
+};
+document.getElementById("forth_sound").onclick = function () {
+  playfou();presscountry(this.name,this.id);
+  return false; // <-- to suppress the default link behaviour
+};
+	
+		
+	document.getElementById("cy").className = "notVisible2";//
+	document.getElementById("fin").className = "notVisible2";//
+	document.getElementById("rom").className = "notVisible2";//
+	document.getElementById("pol").className = "notVisible2";//
+	document.getElementById("ita").className = "notVisible2";//
+	document.getElementById("spn").className = "notVisible2";//
+
+
+	document.getElementById("cy_flag").onclick = function () {
+  
+  return false; // <-- to suppress the default link behaviour
+};
+document.getElementById("fin_flag").onclick = function () {
+  
+  return false; // <-- to suppress the default link behaviour
+};
+document.getElementById("rom_flag").onclick = function () {
+  
+  return false; // <-- to suppress the default link behaviour
+};
+document.getElementById("pol_flag").onclick = function () {
+  
+  return false; // <-- to suppress the default link behaviour
+};
+	
+document.getElementById("ita_flag").onclick = function () {
+  
+  return false; // <-- to suppress the default link behaviour
+};
+document.getElementById("spa_flag").onclick = function () {
+  
+  return false; // <-- to suppress the default link behaviour
+};
+	
+	
+	for(var j=1;j<splitted1.length;j++){
+		document.getElementById(splitted1[j]).onclick = function () {
+  	return false; // <-- to suppress the default link behaviour
+	};
+	var pid=$("#"+splitted1[j]).closest("div").attr("id");
+	document.getElementById(pid).className="notVisible";
+	}	
+	
+	
+	
+	//elegxos gia termatismo level i k oloklirou t paixnidiou
+	fin1++;
+		if(fin1<=3){
+				setTimeout (function (){show_cloud(1);},500);
+				setTimeout (function (){hide_cloud(1);},2000);
+		}
+		if (fin1==4){
+			chosen1='^';
+			splitted1=new Array(0);
+			fin1=0;
+			level++;
+			if (level<=9){
+				setTimeout (function (){show_cloud(1);},500);
+				setTimeout (function (){hide_cloud(1);},2000);	
+				//alert("finish level!"); ///////////
+				chooseplay();
+			}
+			else if(level>9){
+				var oldpoints=points;
+				points=points+(lives*20); ////////////points from lives
+				//alert ("you finish the game!\n your points: \n "+oldpoints+" + ("+lives+" lives *20 points) =\n"+points+"\n in "+count+"seconds!"); 		//////////////////////////////////////finish the game  if winner then  .... else replay or exit	
+			     document.getElementById("sc1").innerHTML ="Your score is: "+oldpoints +"+("+lives+"x20) = "+points+" POINTS";
+			document.getElementById("tim1").innerHTML =(count-1)+" seconds!";
+			
+			show_congrats();
+			setTimeout (function (){show_finalcloud(1);},2000);
+			setTimeout (function (){hide_finalcloud(1);},5000);	//minima ixos finish game
+			
+			}
+		}
+	
+	
+	}
+	
+	else{  ////wrong
+		
+		document.getElementById("ans1").className = "answers";
+	document.getElementById("ans2").className = "answers";
+	document.getElementById("ans3").className = "answers";
+	document.getElementById("ans4").className = "answers";
+
+
+	document.getElementById("first_word").onclick = function () {
+  presscountry(this.name,this.id);
+  return false; // <-- to suppress the default link behaviour
+};
+document.getElementById("second_sound").onclick = function () {
+  playsec();presscountry(this.name,this.id);
+  return false; // <-- to suppress the default link behaviour
+};
+document.getElementById("third_word").onclick = function () {
+  presscountry(this.name,this.id);
+  return false; // <-- to suppress the default link behaviour
+};
+document.getElementById("forth_sound").onclick = function () {
+  playfou();presscountry(this.name,this.id);
+  return false; // <-- to suppress the default link behaviour
+};
+
+
+
+
+	
+		document.getElementById("cy").className = "notVisible2";
+	document.getElementById("fin").className = "notVisible2";
+	document.getElementById("rom").className = "notVisible2";
+	document.getElementById("pol").className = "notVisible2";
+	document.getElementById("ita").className = "notVisible2";
+	document.getElementById("spn").className = "notVisible2";
+
+
+	document.getElementById("cy_flag").onclick = function () {
+  
+  return false; // <-- to suppress the default link behaviour
+};
+document.getElementById("fin_flag").onclick = function () {
+  
+  return false; // <-- to suppress the default link behaviour
+};
+document.getElementById("rom_flag").onclick = function () {
+  
+  return false; // <-- to suppress the default link behaviour
+};
+document.getElementById("pol_flag").onclick = function () {
+  
+  return false; // <-- to suppress the default link behaviour
+};
+	
+document.getElementById("ita_flag").onclick = function () {
+  
+  return false; // <-- to suppress the default link behaviour
+};
+document.getElementById("spa_flag").onclick = function () {
+  
+  return false; // <-- to suppress the default link behaviour
+};
+		
+		
+		for(var j=1;j<splitted1.length;j++){
+			document.getElementById(splitted1[j]).onclick = function () {
+  	return false; // <-- to suppress the default link behaviour
+	};
+	var pid=$("#"+splitted1[j]).closest("div").attr("id");
+	document.getElementById(pid).className="notVisible";
+		}
+		
+		
+		
+		
+		if (points==0){
+		points=0;	
+		}
+		else{
+		points=points-10;	
+		}
+		lives--;
+			if (lives==2){
+				
+				document.getElementById("life3").style.visibility='hidden';
+
+			}
+			
+			else if (lives==1){
+				
+				document.getElementById("life2").style.visibility='hidden';
+
+			}
+			
+			else if (lives==0){
+				document.getElementById("life1").style.visibility='hidden';      
+
+				//alert ("YOU LOSE! you have "+points+" points in "+count+" seconds!");/////////////////////////////////////////exit game or replay
+				
+				
+			show_fail();
+			setTimeout (function (){show_finalcloud(0);},2000);
+			setTimeout (function (){hide_finalcloud(0);},5000);	//minima wrong kai gif
+				
+				
+			}	
+		//alert("wrong2!!!");  sinefo wrong
+		if(lives!=0){	
+		setTimeout (function (){show_cloud(0);},500);
+		setTimeout (function (){hide_cloud(0);},2000);
+		}
+	}
+	
+	
+			document.getElementById("current_points").innerHTML ="POINTS: "+ points; ///////////////////
+			//document.getElementById("live").innerHTML = lives; ///////////////////
+			document.getElementById("lev").innerHTML ="Level: " +level+"/9"; ///////////////////
+	
+}
+
+
+///////
+
+
+
+
+function unpress(){
+		
+		
+		
+		value1=0;
+		value2=0;
+		id1=0;
+		
+		document.getElementById("ans1").className = "answers";
+	document.getElementById("ans2").className = "answers";
+	document.getElementById("ans3").className = "answers";
+	document.getElementById("ans4").className = "answers";
+
+
+	document.getElementById("first_word").onclick = function () {
+  presscountry(this.name,this.id);
+  return false; // <-- to suppress the default link behaviour
+};
+document.getElementById("second_sound").onclick = function () {
+  playsec();presscountry(this.name,this.id);
+  return false; // <-- to suppress the default link behaviour
+};
+document.getElementById("third_word").onclick = function () {
+  presscountry(this.name,this.id);
+  return false; // <-- to suppress the default link behaviour
+};
+document.getElementById("forth_sound").onclick = function () {
+  playfou();presscountry(this.name,this.id);
+  return false; // <-- to suppress the default link behaviour
+};
+
+
+	
+		document.getElementById("cy").className = "notVisible2";
+	document.getElementById("fin").className = "notVisible2";
+	document.getElementById("rom").className = "notVisible2";
+	document.getElementById("pol").className = "notVisible2";
+	document.getElementById("ita").className = "notVisible2";
+	document.getElementById("spn").className = "notVisible2";
+
+
+	document.getElementById("cy_flag").onclick = function () {
+  
+  return false; // <-- to suppress the default link behaviour
+};
+document.getElementById("fin_flag").onclick = function () {
+  
+  return false; // <-- to suppress the default link behaviour
+};
+document.getElementById("rom_flag").onclick = function () {
+  
+  return false; // <-- to suppress the default link behaviour
+};
+document.getElementById("pol_flag").onclick = function () {
+  
+  return false; // <-- to suppress the default link behaviour
+};
+	
+document.getElementById("ita_flag").onclick = function () {
+  
+  return false; // <-- to suppress the default link behaviour
+};
+document.getElementById("spa_flag").onclick = function () {
+  
+  return false; // <-- to suppress the default link behaviour
+};
+		
+		
+		for(var j=1;j<splitted1.length;j++){
+			document.getElementById(splitted1[j]).onclick = function () {
+  	return false; // <-- to suppress the default link behaviour
+	};
+	var pid=$("#"+splitted1[j]).closest("div").attr("id");
+	document.getElementById(pid).className="notVisible";
+		}
+		
+	}
+
+
+
+	function playsec(){
+	  var sound = document.getElementById("sec");
+	  sound.play();	
+	}
+	
+	
+	function playfou(){
+	  var sound = document.getElementById("fou");
+	  sound.play();	
+	}
+
+
+
+
+
+var timer = (function() {
+    var basePeriod = 1000;
+    var currentSpeed = 1;
+    var timerElement;
+    var timeoutRef;
+    
+
+    return {
+      start : function(speed, id) {
+        if (speed >= 0) {
+          currentSpeed = speed;
+		  timer.run();
+        }
+        if (id) {
+          timerElement = document.getElementById(id);
+		  timer.run();
+        }
+		if (speed=="-1000"&&id=="-1000"){
+			count=count;
+		}
+        
+      },
+      run: function() {
+        if (timeoutRef) clearInterval(timeoutRef);
+        if (timerElement) {
+          timerElement.innerHTML = count;
+        }
+        if (currentSpeed) {
+          timeoutRef = setTimeout(timer.run, basePeriod/currentSpeed);
+        }
+        ++count;
+      },
+
+      setSpeed: function(speed) {
+        currentSpeed = +speed;
+        timer.run();
+      }
+    }
+
+}());
+
+window.onload = function(){timer.start(1, 'timer');};
+
+
+
+
+
+</script>
+</body>
+</html>
