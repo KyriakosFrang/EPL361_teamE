@@ -1,0 +1,101 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<link rel="stylesheet" href="index2.css" type ="text/css">
+<meta charset="utf-8">
+<link rel="icon" 
+      href="Asset/euro_flag.jpg" />
+
+<title>Menu</title>
+</head>
+
+<body onLoad="do_first();">
+<script type="text/javascript">
+var dialog ;
+var yes;
+var no;
+var Images;
+var body2;
+	function do_first(){
+ dialog = document.getElementById("dialog_exit");
+ yes = document.getElementById("yes");
+ no =  document.getElementById("no");
+ body2 =  document.getElementById("body2");
+ body2.style.backgroundImage = "url(Asset/cyprusfinal1.gif)"
+ Images = [ "url(Asset/finlandfinal.gif)"  , 
+		  "url(Asset/italy.jpg)" ,  "url(Asset/polandfinal.gif)" ,  "url(Asset/spain.jpg)",
+		  "url(Asset/spain.jpg)" , "url(Asset/romaniafinal.gif" , "url(Asset/cyprusfinal1.gif)"];
+ ch_browser();
+	}
+	function Exit(){
+		dialog.style.visibility = "visible";
+		
+	}
+	function Dialog_exit(){
+		var is_firefox = navigator.userAgent.indexOf('Firefox');
+	
+	if(is_firefox !=-1){
+		top.open('http://www.google.com','_self',''); top.close();
+		window.close();
+	}else{
+		top.open('','_self',''); top.close();
+		window.close();
+	}
+	}
+	function cancel(){
+		dialog.style.visibility = "hidden";
+	}
+	
+	function ch_browser(){
+	var is_firefox = navigator.userAgent.indexOf('Firefox');
+	
+	if(is_firefox !=-1){
+			var curImgId = 0;
+    		var numberOfImages = 6;
+			setInterval(function dosome() { body2.style.backgroundImage = Images[curImgId];
+			curImgId = (curImgId + 1) % numberOfImages;
+			} , 1700);
+		
+	}
+		
+	}
+ 
+	
+		
+	
+</script>
+<div  id= "body2" >
+  <div id="mainPage">
+     <audio id="anthem" autoplay loop> <source src="Asset/background_sounds/kickstarter.ogg"  >
+   <source src="Asset/background_sounds/kickstarter.mp3" >
+    </audio>
+    
+    <div id="mainImage" >
+      <div id="cloud"> <img src="Asset/bubble1.png" width="297px" height="222px" id="cloudimg"> </div>
+      <div id="logo"><img id="garos" src="Asset/logo.gif" width="600px" height="600px" ></div>
+      <div id="list_menu">
+        <ul id="list_menu2">
+        <br/>
+          <li><a class="entypo-star" href="LearningOption.html">Learning</a> </li>
+          <li><a href="ChooseGame.html">Games</a></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li><a  href="HowToPlay.html">How To Play</a></li>
+          <li></li>
+          <li><a  href="credits.html">Credits</a></li>
+          <li></li>
+          <li><a href="#" onClick="Exit();">Exit</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div id="dialog_exit" >
+  		<h2>Are you sure?</h2>
+        <div id="yes"> <a onClick="Dialog_exit();"><img src="Asset/tick.png" width="128" height="128" /></a> </div>
+        <div id="no"> <a onClick="cancel();"><img src="Asset/remove.png" width="128" height="128"/> </a> </div>
+  </div>
+</div>
+
+</body>
+</html>
