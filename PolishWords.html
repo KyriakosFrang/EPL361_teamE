@@ -1,0 +1,258 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<link rel="icon" 
+      href="Asset/euro_flag.jpg" />
+
+<link rel="stylesheet" href="wordSounds.css" type ="text/css">
+<style>
+a {
+	cursor:pointer;
+}
+</style>
+<meta charset="utf-8">
+<title>PolishWords</title>
+</head>
+
+<body style="background-image:url(Asset/polandfinal.gif);">
+<script type="text/javascript">
+
+	function playTak(){
+	  var sound = document.getElementById("tak");
+	  sound.play();	
+	}
+	
+	function playNie(){
+	  var sound = document.getElementById("nie");
+	  sound.play();	
+	}
+	
+	function playDziekuje(){
+	  var sound = document.getElementById("dziekuje");
+	  sound.play();	
+	}
+	
+	function playProsze(){
+	  var sound = document.getElementById("prosze");
+	  sound.play();	
+	}
+	
+	function playPrzepraszam(){
+	  var sound = document.getElementById("przepraszam");
+	  sound.play();	
+	}
+	
+	function playDzien(){
+	  var sound = document.getElementById("dzien");
+	  sound.play();	
+	}
+	
+	function playDobranoc(){
+	  var sound = document.getElementById("dobranoc");
+	  sound.play();	
+	}
+	
+	function playCzesc(){
+	  var sound = document.getElementById("czesc");
+	  sound.play();	
+	}
+	
+	function playMilo(){
+	  var sound = document.getElementById("milo");
+	  sound.play();	
+	}
+		
+	function playJak(){
+	  var sound = document.getElementById("jak");
+	  sound.play();	
+	}
+		
+	function playMam(){
+	  var sound = document.getElementById("mam");
+	  sound.play();	
+	}
+		
+	function playCJak(){
+	  var sound = document.getElementById("cjak");
+	  sound.play();	
+	}
+		
+	function playWporzadku(){
+	  var sound = document.getElementById("wporzadku");
+	  sound.play();	
+	}
+		
+	function playNiezbyt(){
+	  var sound = document.getElementById("niezbyt");
+	  sound.play();	
+	}
+
+</script>
+<div id="container">
+  <div id="header">
+    <h1>Learn Polish Words</h1>
+  </div>
+  <div id="main_page">
+    <div id="back"> <a href="LearningOption.html"><img id="back_img" src="Asset/back.png" width="80" height="80"/></a></div>
+    <div id="home"> <a href="Index2.html"><img  id="home_img" src="Asset/home.png" width="80" height="80"/></a></div>
+    <div id="id_papiros"><img src="Asset/papyrus.gif" name="papiros"  id="papiros" /></div>
+    <table id="table_lang" >
+      <tr>
+        <td style="font-size:25px;"> English </td>
+        <td style="font-size:25px;"> Polish </td>
+        <td style="font-size:25px;"> Sound </td>
+      </tr>
+      <tr>
+        <td> Yes </td>
+        <td>Tak</td>
+        <td><a onclick="playTak();"><img src="Asset/soundon1.png" width="25" height="25" />
+          <audio id="tak">
+            <source src="Asset/words_sounds/Tak.ogg" hidden="true">
+            <source src="Asset/words_sounds/Tak.mp3">
+          </audio>
+          </a></td>
+      </tr>
+      <tr>
+        <td> No </td>
+        <td> Nie</td>
+        <td><a onclick="playNie();"><img src="Asset/soundon1.png" width="25" height="25" />
+          <audio id="nie">
+            <source src="Asset/words_sounds/Nie.ogg" hidden="true">
+            <source src="Asset/words_sounds/Nie.mp3">
+          </audio>
+          </a></td>
+      </tr>
+      <tr>
+        <td> Thank you </td>
+        <td>Dziękuję</td>
+        <td><a onclick="playDziekuje();"><img src="Asset/soundon1.png" width="25" height="25" />
+          <audio id="dziekuje">
+            <source src="Asset/words_sounds/Dziękuję.ogg" hidden="true">
+            <source src="Asset/words_sounds/Dziękuję.mp3">
+          </audio>
+          </a></td>
+      </tr>
+      <tr>
+        <td> Please </td>
+        <td>Proszę</td>
+        <td><a onclick="playProsze();"><img src="Asset/soundon1.png" width="25" height="25" />
+          <audio id="prosze">
+            <source src="Asset/words_sounds/Proszę.ogg" hidden="true">
+            <source src="Asset/words_sounds/Proszę.mp3">
+          </audio>
+          </a></td>
+      </tr>
+      <tr>
+        <td> Excuse me </td>
+        <td>Przepraszam</td>
+        <td><a onclick="playPrzepraszam();"><img src="Asset/soundon1.png" width="25" height="25" />
+          <audio id="przepraszam">
+            <source src="Asset/words_sounds/Przepraszam.ogg" hidden="true">
+            <source src="Asset/words_sounds/Przepraszam.mp3">
+          </audio>
+          </a></td>
+      </tr>
+      <tr>
+        <td> Bye Bye </td>
+        <td>Cześć</td>
+        <td><a onclick="playCzesc();"><img src="Asset/soundon1.png" width="25" height="25" />
+          <audio id="czesc">
+            <source src="Asset/words_sounds/Cześć.ogg" hidden="true">
+            <source src="Asset/words_sounds/Cześć.mp3">
+          </audio>
+          </a></td>
+      </tr>
+      <tr>
+        <td> Goodmorning </td>
+        <td>Dzień dobry</td>
+        <td><a onclick="playDzien();"><img src="Asset/soundon1.png" width="25" height="25" />
+          <audio id="dzien">
+            <source src="Asset/words_sounds/Dzień dobry.ogg" hidden="true">
+            <source src="Asset/words_sounds/Dzień dobry.mp3">
+          </audio>
+          </a></td>
+      </tr>
+      <tr>
+        <td> Goodnight </td>
+        <td>Dobranoc</td>
+        <td><a onclick="playDobranoc();"><img src="Asset/soundon1.png" width="25" height="25" />
+          <audio id="dobranoc">
+            <source src="Asset/words_sounds/Dobranoc.ogg" hidden="true">
+            <source src="Asset/words_sounds/Dobranoc.mp3">
+          </audio>
+          </a></td>
+      </tr>
+      <tr>
+        <td> Hello</td>
+        <td>Cześć</td>
+        <td><a onclick="playCzesc();"><img src="Asset/soundon1.png" width="25" height="25" />
+          <audio id="czesc">
+            <source src="Asset/words_sounds/Cześć.ogg" hidden="true">
+            <source src="Asset/words_sounds/Cześć.mp3">
+          </audio>
+          </a></td>
+      </tr>
+      <tr>
+        <td> Nice to meet you </td>
+        <td>Miło Cię spotkać</td>
+        <td><a onclick="playMilo();"><img src="Asset/soundon1.png" width="25" height="25" />
+          <audio id="milo">
+            <source src="Asset/words_sounds/Miło Cię spotkać.ogg" hidden="true">
+            <source src="Asset/words_sounds/Miło Cię spotkać.mp3">
+          </audio>
+          </a></td>
+      </tr>
+      <tr>
+        <td> What’s your name? </td>
+        <td>Jak masz na imię?</td>
+        <td><a onclick="playJak();"><img src="Asset/soundon1.png" width="25" height="25" />
+          <audio id="jak">
+            <source  src="Asset/words_sounds/Jak masz na imię.ogg" hidden="true">
+            <source src="Asset/words_sounds/Jak masz na imię.mp3">
+          </audio>
+          </a></td>
+      </tr>
+      <tr>
+        <td> My name is </td>
+        <td>Mam na imię</td>
+        <td><a onclick="playMam();"><img src="Asset/soundon1.png" width="25" height="25" />
+          <audio id="mam">
+            <source src="Asset/words_sounds/Mam na imię.ogg" hidden="true">
+            <source src="Asset/words_sounds/Mam na imię.mp3">
+          </audio>
+          </a></td>
+      </tr>
+      <tr>
+        <td> How are you? </td>
+        <td>CJak się masz?</td>
+        <td><a onclick="playCJak();"><img src="Asset/soundon1.png" width="25" height="25" />
+          <audio id="cjak">
+            <source src="Asset/words_sounds/CJak się masz.ogg" hidden="true">
+            <source src="Asset/words_sounds/CJak się masz.mp3">
+          </audio>
+          </a></td>
+      </tr>
+      <tr>
+        <td> I’m fine</td>
+        <td>W porządku</td>
+        <td><a onclick="playWporzadku();"><img src="Asset/soundon1.png" width="25" height="25" />
+          <audio id="wporzadku">
+            <source src="Asset/words_sounds/W porządku.ogg" hidden="true">
+            <source src="Asset/words_sounds/W porządku.mp3">
+          </audio>
+          </a></td>
+      </tr>
+      <tr>
+        <td> I’m not fine </td>
+        <td>Niezbyt dobrze</td>
+        <td><a onclick="playNiezbyt();"><img src="Asset/soundon1.png" width="25" height="25" />
+          <audio id="niezbyt">
+            <source src="Asset/words_sounds/Niezbyt dobrze.ogg" hidden="true">
+            <source src="Asset/words_sounds/Niezbyt dobrze.mp3">
+          </audio>
+          </a></td>
+      </tr>
+    </table>
+  </div>
+</div>
+</html>
