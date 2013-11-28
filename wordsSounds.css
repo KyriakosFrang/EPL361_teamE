@@ -1,0 +1,116 @@
+@charset "utf-8";
+/* CSS Document */
+
+*{
+	margin: 0px;
+	padding: 0px;	
+
+}
+body, html{
+	width: 100%;
+	height: 100%;
+	overflow:auto;
+	
+}
+body{
+	background-repeat:no-repeat;
+	background-attachment:fixed;
+	background-size:cover;
+}
+#header{
+	text-align:center;	
+	margin: 0px;
+	width:100%;
+}
+
+#header h1{
+	font:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	font-size:80px;
+	font-variant:small-caps;	
+}
+#main_page{
+	position:absolute;	
+	width:100%;
+	height: 100%;
+	
+	
+}
+#papiros{
+	width: 650px;
+	height: 1000px;
+	min-height: 1000px;
+	min-width: 650px;	
+}
+
+#id_papiros{
+	position:absolute;
+	left: 30%;
+	width:600px;	
+	height: 820px;
+	max-height:820px;
+	max-width:600px;
+	top:0px;
+	
+}
+#flag_new{
+	position:relative;
+	z-index: -2;
+	bottom: 35%;
+		
+}
+
+#table_lang{
+	line-height:30px; 
+	left:35%;
+	top:140px;
+	position: absolute;
+/*	top: 125px;*/
+/*	left: 30%;*/
+	width:450px;	
+	height: 500px;
+	min-height: 350px;
+	min-width: 450px;
+	font-size: 25px;
+	
+}
+
+#table_lang a{
+	cursor: pointer;
+}
+#container{
+	width:100%;
+	height:100%;
+	background-size: 100% , 100%;
+
+}
+
+#back{
+	position: absolute;
+	transition:all .1s;
+	-webkit-transition: all .1s;
+	width: 80px;
+	z-index:9;
+	left:5%;
+	
+	
+		
+}
+#home{
+	position: absolute;
+	width: 80px;
+	left:90%;
+	z-index:2;
+	transition:all .1s;
+	-webkit-transition: all .1s;
+		
+}
+#back_img:hover{
+	
+	transform: translateX(-10px);
+	-webkit-transform: translateX(-10px);
+}
+#home_img:hover{
+	transform: translateX(-10px);
+	-webkit-transform: translateX(-10px);
+	
+}
