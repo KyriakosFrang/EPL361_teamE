@@ -1,0 +1,295 @@
+@charset "utf-8";
+/* CSS Document */
+
+body, html {
+	height:100%;
+	width: 100%;
+	
+} 
+
+* {
+	margin: 0px;
+	padding: 0px;
+}
+
+#header {
+	text-align:center;
+	text-align-last:none;
+	color:#000000;
+	font-family:"Palatino Linotype", "Book Antiqua", Palatino, serif;
+	line-height: 50px;
+	font-size:50px;
+	border-radius:20px;
+	transition: all .1s;
+	-webkit-transition: all .1s;
+}
+
+#container{
+	width:100%;
+	height:100%;
+	position:absolute;
+	overflow:hidden;
+	background-repeat:no-repeat;
+	background-size: 100% 100%;	
+	
+	/*animation-timing-function:linear;
+	animation-delay:0s;
+	animation-name:  flags;
+	animation-duration:20s;
+	animation-iteration-count:infinite;
+	animation-play-state:running;*/
+	
+	-webkit-animation-timing-function:linear;
+	-webkit-animation-delay:0s;
+	-webkit-animation-name:  flags;
+	-webkit-animation-duration:20s;
+	-webkit-animation-iteration-count:infinite;
+	-webkit-animation-play-state:running;
+	
+	
+}
+/*
+@keyframes flags  {
+  0% {
+background-color:rgba(0,0,255, 0.5);
+}
+20% {
+background-color:rgba(255,255,255, 0.5);
+}
+40% {
+background-color:rgba(204,51,0, 0.5);
+}
+60% {
+background-color:rgba(0,153,0, 0.5);
+}
+80% {
+background-color:rgba(255,0,0, 0.5);
+}
+100% {
+background-color:rgba(255,255,0, 0.5);
+}
+}
+*/
+@-webkit-keyframes flags /* Safari and Chrome */ {
+ 0% {
+background-image:url(Asset/cyprusfinal1.gif) ;
+background-repeat:no-repeat;
+width: 100%;
+height: 100%;
+opacity: 0.7;
+}
+20% {
+background-image:url(Asset/polandfinal.gif);
+background-repeat:no-repeat;
+width: 100%;
+height: 100%;
+opacity: 0.7;
+
+}
+40% {
+background-image: url(Asset/romaniafinal.gif);
+background-repeat:no-repeat;
+width: 100%;
+height: 100%;
+opacity: 0.7;
+}
+60% {
+background-image:url(Asset/finlandfinal.gif);
+background-repeat:no-repeat;
+width: 100%;
+height: 100%;
+opacity: 0.7;
+}
+80% {
+background-image:url(Asset/italy.jpg);
+background-repeat:no-repeat;
+width: 100%;
+height: 100%;
+opacity: 0.7;
+}
+100% {
+background-image:url(Asset/Spanish_Flag.png);
+background-repeat:no-repeat;
+width: 100%;
+height: 100%;
+opacity: 0.7;
+}
+}
+
+#main{
+text-align:center;	
+
+}
+#garos {
+	position:relative;
+	top: 0px;
+	opacity: 1;
+
+}
+#list_menu{
+	position:relative;
+	top: -450px;
+	left: 150px;
+}
+#list_menu ul {
+	list-style-type: none;	
+}
+
+#list_menu ul  li a{
+	font-variant: small-caps;
+	text-decoration: none;
+	color: #000;
+	line-height: 55px;
+	font-size:20px;
+	font-family:"Palatino Linotype", "Book Antiqua", Palatino, serif;
+	border-radius:20px;
+	transition: all .5s;
+	-webkit-transition: all .5s;
+	
+}
+#list_menu ul  li a:hover{
+	background:rgba(0,153,0,.6);
+	font-weight:bold;
+	color:#FFF;
+}
+#list_menu ul  li{
+	display:list-item;
+	text-align: center;
+	vertical-align: middle;
+}
+
+#img_home {
+	position:relative;
+	bottom:250px;
+	left:1000px;
+	transition: all .1s;
+	-webkit-transition: all .1s;
+}
+#choose{
+	position:absolute;
+	top: 15%;
+	left: 20%;
+	background:rgba(204,204,204,0.8);
+	height: 50%;
+	width:70%;	
+	min-width: 900px;
+	min-height: 510px;
+	border-radius: 50px;
+	visibility:hidden;
+	
+	
+}
+
+
+
+#choose p{
+	text-align:center;
+	font:"Palatino Linotype", "Book Antiqua", Palatino, serif;
+	font-size:50px;
+	font-variant:small-caps	
+	
+}
+#cancel{
+	position:relative;
+	left: 90%;
+	top: -50px;
+	transition: all .5s;
+	-webkit-transition: all .5s;
+	
+}
+#canc:hover{
+	transform: translateY(-10px);
+		-webkit-transform: translateY(-10px);
+	
+}
+
+#cyflag {
+	position:relative;
+	top: 0%;
+	left: 10%;
+	cursor: pointer;
+	border-radius: 80px;
+	transition: all .5s;
+	-webkit-transition: all .5s;
+}
+
+#finlandflag {
+	position:relative;
+	cursor: pointer;
+	bottom: 150px;
+	left: 40%;
+	border-radius: 80px;
+	transition: all .5s;
+	-webkit-transition: all .5s;
+}
+
+#romaniaflag {
+	position:relative;
+	top: -300px;
+	cursor: pointer;
+	left: 70%;
+	border-radius: 80px;
+	transition: all .5s;
+	-webkit-transition: all .5s;
+}
+
+#polandflag {
+	position:relative;
+	top: -240px;
+	cursor: pointer;
+	left: 10%;
+	border-radius: 80px;
+	transition: all .5s;
+	-webkit-transition: all .5s;
+}
+
+#italyflag {
+	position:relative;
+	cursor: pointer;
+	top: -370px;
+	left: 40%;
+	border-radius: 80px;
+	transition: all .5s;
+	-webkit-transition: all .5s;
+}
+	
+#spainflag {
+	position:relative;
+	top: -490px;
+	cursor: pointer;
+	left: 70%;
+	border-radius: 80px;
+	transition: all .5s;
+	-webkit-transition: all .5s;
+}
+#spn :hover{
+
+transform: translateY(-10px);
+	-webkit-transform: translateY(-10px);
+	
+}
+#cy :hover{
+	transform: translateY(-10px);
+	-webkit-transform: translateY(-10px);
+}
+
+#fin :hover{
+	transform: translateY(-10px);
+	-webkit-transform: translateY(-10px);
+}
+
+#rom :hover{
+	transform: translateY(-10px);
+	-webkit-transform: translateY(-10px);
+}
+
+#pol :hover{
+	transform: translateY(-10px);
+	-webkit-transform: translateY(-10px);
+}
+
+#ita :hover{
+	transform: translateY(-10px);
+	-webkit-transform: translateY(-10px);
+	
+}
