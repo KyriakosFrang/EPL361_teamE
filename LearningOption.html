@@ -1,0 +1,152 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<link rel="stylesheet" href="LearningOption.css" type ="text/css">
+<meta charset="utf-8">
+<link rel="icon" 
+      href="Asset/euro_flag.jpg" />
+
+<title>LearningOption</title>
+<style type="text/css">
+.show {
+	animation-timing-function:linear;
+	animation-delay:0s;
+	animation-name:  choose;
+	animation-duration:.5s;
+	animation-iteration-count:1;
+	animation-play-state:running;
+	animation-fill-mode: forwards;
+	-webkit-animation-timing-function:linear;
+	-webkit-animation-delay:0s;
+	-webkit-animation-name:  choose;
+	-webkit-animation-duration:.5s;
+	-webkit-animation-iteration-count:1;
+	-webkit-animation-play-state:running;
+	-webkit-animation-fill-mode: forwards;
+}
+@keyframes choose /* Safari and Chrome */ {
+ from {
+visibility:visible;
+ transform:scale(0, 0);
+}
+to {
+	visibility:visible;
+}
+}
+@-webkit-keyframes choose /* Safari and Chrome */ {
+ from {
+visibility:visible;
+ -webkit-transform:scale(0, 0);
+}
+to {
+	visibility:visible;
+}
+}
+/***************************************************/
+.go {
+	animation-timing-function:linear;
+	animation-delay:0s;
+	animation-name:  go;
+	animation-duration:.5s;
+	animation-iteration-count:1;
+	animation-play-state:running;
+	animation-fill-mode: forwards;
+	-webkit-animation-timing-function:linear;
+	-webkit-animation-delay:0s;
+	-webkit-animation-name:  go;
+	-webkit-animation-duration:.5s;
+	-webkit-animation-iteration-count:1;
+	-webkit-animation-play-state:running;
+	-webkit-animation-fill-mode: forwards;
+}
+ @keyframes go /* Safari and Chrome */ {
+ from {
+visibility:visible;
+}
+to {
+	transform:scale(0, 0);
+}
+}
+ @-webkit-keyframes go /* Safari and Chrome */ {
+ from {
+visibility:visible;
+}
+to {
+	-webkit-transform:scale(0, 0);
+}
+}
+</style>
+</head>
+
+<body>
+<script type="text/javascript">
+	function palayMusic(){
+		var music = document.getElementById("music");
+		music.play();	
+	}
+
+	var choose = document.getElementById("choose_sounds");
+
+	function show_choose_sound(){
+		 document.getElementById("choose_sounds").className ='show';		
+	}
+	function hidde_choose_sound(){
+		 document.getElementById("choose_sounds").className ='go';
+	}
+	function show_choose_info(){
+		 document.getElementById("choose_info").className ='show';		
+	}
+	function hidde_choose_info(){
+		 document.getElementById("choose_info").className ='go';
+	}
+
+
+</script>
+<audio id="anthem" autoplay loop>
+  <source src="Asset/background_sounds/festival.ogg"  >
+  <source src="Asset/background_sounds/festival.mp3" >
+</audio>
+<div id="container">
+  <div id="back"> <a href="Index2.html"><img id="back_img" src="Asset/back.png" width="80" height="80"/></a></div>
+  <div id="home"> <a href="Index2.html"><img id="home_img" src="Asset/home.png" width="80" height="80"/></a></div>
+  <div id="title">
+    <h1>Learning Options</h1>
+  </div>
+  <div id="man"> <img src="Asset/adropos.gif" width="300" height="300"  /> </div>
+  <div id="choices"> <a href="#" onClick="show_choose_sound();"> Words with Sounds</a> <br />
+    <br />
+    <a href="#" onClick="show_choose_info();">General Info About Countries</a> </div>
+  <div id="woman"> <img src="Asset/korou.gif" width="300" height="300"  /> </div>
+  
+  <div id="choose_sounds">
+    <p> Choose Country </p>
+    <div id="cancel"> <a href="#" onClick="hidde_choose_sound();"><img id="canc" src="Asset/cancel.png" width="50" height="50"/></a> </div>
+    <div id="cy" class="flags"> <a href="CyprusWords.html"><img id="cyflag" src="Asset/CY2.png" width="200" height="143"/ alt="Cyprus" /> </a> </div>
+    <div id="fin" class="flags"> <a href="FinlandWords.html"><img id="finlandflag" src="Asset/The Finnish flag2.png" width="200" height="154" alt="Finland" /> </a> </div>
+    <div id="rom" class="flags"> <a href="RomanianWords.html"><img id="romaniaflag" src="Asset/romania2.png" width="200" height="146" alt="Romania" /> </a> </div>
+    <div id="pol" class="flags"> <a href="PolishWords.html"><img id="polandflag" src="Asset/PL flag2.png" width="200" height="140" alt="Poland" /> </a> </div>
+    <div id="ita" class="flags"> <a href="ItalianWords.html"><img id="italyflag" src="Asset/italy2.png" width="200" height="125" alt="Italy" /> </a></div>
+    <div id="spn" class="flags"><a href="SpanishWords.html"><img id="spainflag" src="Asset/Spanish_Flag.png" width="200" height="140" alt="Spain"/> </a></div>
+  </div>
+  
+  
+  <div id="choose_info">
+    <p> Choose Country </p>
+    <div id="cancel"> <a href="#" onClick="hidde_choose_info();"><img id="canc" src="Asset/cancel.png" width="50" height="50"/></a> </div>
+    <div id="cy" class="flags"> <a href="CyprusInformation.html"><img id="cyflag" src="Asset/CY2.png" width="200" height="143"/ alt="Cyprus" /> </a> </div>
+    <div id="fin" class="flags"> <a href="FinlandInformation.html"><img id="finlandflag" src="Asset/The Finnish flag2.png" width="200" height="154" alt="Finland" /> </a> </div>
+    <div id="rom" class="flags"> <a href="RomanianInformation.html"><img id="romaniaflag" src="Asset/romania2.png" width="200" height="146" alt="Romania" /> </a> </div>
+    <div id="pol" class="flags"> <a href="PolandInformation.html"><img id="polandflag" src="Asset/PL flag2.png" width="200" height="140" alt="Poland" /> </a> </div>
+    <div id="ita" class="flags"> <a href="ItalyInformation.html"><img id="italyflag" src="Asset/italy2.png" width="200" height="125" alt="Italy" /> </a> </div>
+    <div id="spn" class="flags"><a href="SpainInformation.html"><img id="spainflag"  src="Asset/Spanish_Flag.png" width="200" height="140" alt="Spain"/> </a></div>
+  </div>
+</div>
+
+<!--<div id="title"> <p> What you want to learn? </p>
+<div id="opt1"> <p> <a href="ChooseCountry.html"> Words with Sounds </a></p>
+<div id="opt2"> <p> <a href="ChooseCountry2.html">General Info About Cuntries</a></p>
+</div>
+</div>
+</div>-->
+</body>
+</html>
