@@ -1,0 +1,155 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<link rel="stylesheet" href="credits.css" type ="text/css">
+<meta charset="utf-8">
+<link rel="icon" 
+      href="Asset/euro_flag.jpg" />
+
+<title>Credits</title>
+<style type="text/css">
+.show {
+	animation-timing-function:linear;
+	animation-delay:0s;
+	animation-name:  choose;
+	animation-duration:.5s;
+	animation-iteration-count:1;
+	animation-play-state:running;
+	animation-fill-mode: forwards;
+	-webkit-animation-timing-function:linear;
+	-webkit-animation-delay:0s;
+	-webkit-animation-name:  choose;
+	-webkit-animation-duration:.5s;
+	-webkit-animation-iteration-count:1;
+	-webkit-animation-play-state:running;
+	-webkit-animation-fill-mode: forwards;
+}
+@keyframes choose /* Safari and Chrome */ {
+ from {
+visibility:visible;
+ transform:scale(0, 0);
+}
+to {
+	visibility:visible;
+}
+}
+@-webkit-keyframes choose /* Safari and Chrome */ {
+ from {
+visibility:visible;
+ -webkit-transform:scale(0, 0);
+}
+to {
+	visibility:visible;
+}
+}
+/***************************************************/
+.go {
+	animation-timing-function:linear;
+	animation-delay:0s;
+	animation-name:  go;
+	animation-duration:.5s;
+	animation-iteration-count:1;
+	animation-play-state:running;
+	animation-fill-mode: forwards;
+	-webkit-animation-timing-function:linear;
+	-webkit-animation-delay:0s;
+	-webkit-animation-name:  go;
+	-webkit-animation-duration:.5s;
+	-webkit-animation-iteration-count:1;
+	-webkit-animation-play-state:running;
+	-webkit-animation-fill-mode: forwards;
+}
+ @keyframes go /* Safari and Chrome */ {
+ from {
+visibility:visible;
+}
+to {
+	transform:scale(0, 0);
+}
+}
+ @-webkit-keyframes go /* Safari and Chrome */ {
+ from {
+visibility:visible;
+}
+to {
+	-webkit-transform:scale(0, 0);
+}
+}
+</style>
+</head>
+
+<body onLoad="first();">
+<script type="text/javascript">
+ var image;
+ var end_sound;
+ function first(){
+	document.getElementById("sound").play();
+	 image = document.getElementById('adropos');
+	 end_sound = document.getElementById('end_sound');
+	setInterval ( function (){show_img ();} , 60000);
+	self.setTimeout('gotoMainMenu()', 64000); 
+}
+	function gotoMainMenu ( ) {
+document.location="Index2.html";
+}
+
+function show_img () {
+	image.className = 'show';
+	end_sound.play();
+ image.src = 'Asset/GIF/adropos.gif'
+}
+ 
+ 
+ </script>
+<audio id="sound">
+  <source src="Asset/credits_song.ogg" type="audio/ogg"  hidden="true">
+  <source src="Asset/credits_song.mp3"  type="audio.mpeg" hidden="true">
+</audio>
+ <div id="home"> <a href="Index2.html"><img  id="home_img" src="Asset/home.png" width="70" height="70"/></a></div>
+<div id="titles">
+  <div id="titlecontent"> <img src="Asset/eu_comenious.gif" width="700" height="200"/>
+    <p><strong>Tradition Diversity and Acceptance</strong><br/>
+      <br/>
+      This game is based on Comenius's Idea.<br/>
+      In association with the School of Rizokarpaso.<br/>
+      Participate Countries (alphabetically): <br/>
+      <section id="countries"> Cyprus<br/>
+        <img id="cyflag" src="Asset/CY2.png" width="350" height="200" alt="Cyprus" /><br/>
+        Finland<br/>
+        <img id="finlandflag" src="Asset/The Finnish flag2.png" width="350" height="200" alt="Finland" /><br/>
+        Italy<br/>
+        <img id="italyflag" src="Asset/italy2.png"width="350" height="200" alt="Italy" /><br/>
+        Poland<br/>
+        <img id="polandflag" src="Asset/PL flag2.png" width="350" height="200" alt="Poland" /><br/>
+        Romania<br/>
+        <img id="romaniaflag" src="Asset/romania2.png" width="350" height="200" alt="Romania" /><br/>
+        Spain<br/>
+        <img id="spainflag" src="Asset/Spanish_Flag.png" width="350" height="200" alt="Spain"/><br/>
+        <br/>
+      </section>
+      Special Thanks:<br/>
+      School of Rizokarpaso<br/>
+      University Of Cyprus<br/>
+      <br/>
+      Web design team<br/>
+      Site Supervisor: Prof. Georgia Kapitsaki<br/>
+      Site production lead: Maimaris Stelios<br/>
+      Art director: Frangeskos Kyriakos<br/>
+      Web technology lead: Georgiou Stelios<br/>
+      Site editor: Charalambous Georgia<br/>
+      Site editor: Rotsidou Georgia<br/>
+      <br/>
+      The sounds and the images for the game were sent from each country.<br/>
+      This game works full functional in Google Chrome and Opera browser and with
+      some functionality in Firefox Mozilla 25.0.1<br/>
+      <br/>
+      Thank you and enjoy!</p>
+  </div>
+</div>
+<audio id="end_sound">
+  <source src="Asset/end_voice.ogg" type="audio/ogg"  hidden="true">
+  <source src="Asset/end_voice.mp3" type="audio.mpeg" hidden="true">
+</audio>
+<div id="logo_end"> <img id="adropos" src="Asset/adropos.gif"/> </div>
+</body>
+</html>
