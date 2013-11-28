@@ -1,0 +1,1449 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<script src="jquery-1.10.2.min.js"></script>
+<meta charset="utf-8">
+<title>Matching</title>
+<link href="matching.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+.show {
+	animation-timing-function:linear;
+	animation-delay:0s;
+	animation-name:  choose;
+	animation-duration:.5s;
+	animation-iteration-count:1;
+	animation-play-state:running;
+	animation-fill-mode: forwards;
+	-webkit-animation-timing-function:linear;
+	-webkit-animation-delay:0s;
+	-webkit-animation-name:  choose;
+	-webkit-animation-duration:.5s;
+	-webkit-animation-iteration-count:1;
+	-webkit-animation-play-state:running;
+	-webkit-animation-fill-mode: forwards;
+}
+@keyframes choose /* Safari and Chrome */ {
+ from {
+visibility:visible;
+ transform:scale(0, 0);
+}
+to {
+	visibility:visible;
+}
+}
+@-webkit-keyframes choose /* Safari and Chrome */ {
+ from {
+visibility:visible;
+ -webkit-transform:scale(0, 0);
+}
+to {
+	visibility:visible;
+}
+}
+/***************************************************/
+.go {
+	animation-timing-function:linear;
+	animation-delay:0s;
+	animation-name:  go;
+	animation-duration:.5s;
+	animation-iteration-count:1;
+	animation-play-state:running;
+	animation-fill-mode: forwards;
+	-webkit-animation-timing-function:linear;
+	-webkit-animation-delay:0s;
+	-webkit-animation-name:  go;
+	-webkit-animation-duration:.5s;
+	-webkit-animation-iteration-count:1;
+	-webkit-animation-play-state:running;
+	-webkit-animation-fill-mode: forwards;
+}
+ @keyframes go /* Safari and Chrome */ {
+ from {
+visibility:visible;
+}
+to {
+	transform:scale(0, 0);
+}
+}
+ @-webkit-keyframes go /* Safari and Chrome */ {
+ from {
+visibility:visible;
+}
+to {
+	-webkit-transform:scale(0, 0);
+}
+}
+</style>
+</head>
+
+<body>
+<audio id="win_sound" hidden="true">
+  <source src="Asset/words_sounds/Congratulations.ogg" >
+  <source src="Asset/words_sounds/Congratulations.mp3" >
+</audio>
+<audio id="lose_sound" hidden="true">
+  <source src="Asset/words_sounds/Try again.ogg" >
+  <source src="Asset/words_sounds/Try again.mp3" >
+</audio>
+<audio autoplay loop hidden="true">
+  <source src="Asset/background_sounds/Pomade.ogg" >
+  <source src="Asset/background_sounds/Pomade.mp3" >
+</audio>
+<div id="container">
+  <div id="header">
+    <ul id="header_menu">
+      <li style="color:#9F0;">Lives: <img id="life1" src="Asset/star.png" width="40px" height="40px"> <img id="life2" src="Asset/star.png" width="40" height="40"> <img id="life3" src="Asset/star.png" width="40" height="40"></li>
+      <li id="lev" style="color:#F00;" >Level: 1-7</li>
+      <li id="menu_opt"><a href="#">Menu</a>
+        <ul class="drop_down">
+          <li onClick="mat()" ><a>Replay</a></li>
+          <li><a href="ChooseGame.html">Exit to game</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  <div id="main">
+  <div id="cloud_win"><img src="Asset/cloud_win.png"  width="128" height="128"/></div>
+  <div id="cloud_korou"><img src="Asset/cloud_korou.png" width="128" height="128"/></div>
+    <div id="korou"> <img id="korouou" src=""  /> </div>
+    <div id="questions">
+      <div id="theQuest">
+        <p>Match the left words with the right ones!</p>
+      </div>
+      <div id="unselect"> <a id="unpr" value="" onClick="unpress()">unpress</a> </div>
+      <div id="Ans1" class="answers"><a id="engA" name="" onClick="foreng(this.name,this.id); dis_div2();">Answer1</a></div>
+      <div id="Ans2" class="answers"><a id="engB" name="" onClick="foreng(this.name,this.id); dis_div2();">Answer2</a></div>
+      <div id="Ans3" class="answers"> <a id="engC" name="" onClick="foreng(this.name,this.id); dis_div2();">Answer3</a></div>
+      <div id="Ans4" class="answers"><a id="engD" name="" onClick="foreng(this.name,this.id); dis_div2();">Answer4</a></div>
+      <div id="Ans7" class="answers"><a id="langA" name="" onClick="forlang(this.name,this.id)">Answer7</a></div>
+      <div id="Ans8" class="answers"><a id="langB" name="" onClick="forlang(this.name,this.id)">Answer8</a></div>
+      <div id="Ans9" class="answers"><a id="langC" name="" onClick="forlang(this.name,this.id)">Answer9</a></div>
+      <div id="Ans10" class="answers"><a id="langD" name="" onClick="forlang(this.name,this.id)">Answer10</a></div>
+      
+       <div id="msg_level" >
+      <section id="message">
+        <p id="l1">Level # </p>
+        <p>COMPLETED! </p>
+        <p id="sc0">you earn # POINTS</p>
+        <br/>
+      </section>
+      <div id="continue"> <a href="#" onClick="hidde_level();" >Next Level</a></div>
+    </div>
+    <div id="msg_congrats"  >
+      <section id="message">
+        <p>Congratulation!</p>
+        <p>you complete the game</p>
+        <p id="sc1"> your score is #</p>
+        <p id="tim1"># seconds!</p>
+
+      </section>
+      <div id="exit"> <a id="ex" href="ChooseGame.html"  >Exit</a></div>
+      <div id="replay" onClick="mat()" > <a id="ex">Replay</a></div>
+    </div>
+    
+     <div id="msg_fail" >
+      <section id="message">
+        <p>You Lose!</p>
+        <p>Your score is</p>
+        <p id="sc2"># Points</p>
+        <p id="tim2"># seconds</p>
+
+      </section>
+      <div id="exit"> <a id="ex" href="ChooseGame.html"  >Exit</a></div>
+      <div id="replay" onClick="mat()" > <a id="ex"  >Replay</a></div>
+    </div>
+      
+    </div>
+    <div id="cloud_lose"><img src="Asset/cloud_loose.png" width="128" height="128"/> </div>
+    <div id="cloud_adropos"><img src="Asset/cloud_adropos.png" width="128" height="128"/> </div>
+    <div id="andropos"> <img id="adropospos" src="" /> </div>
+    <div id="footer">
+      <div id="time"> <img src="Asset/timer.png" width="50" height="50" /> </div>
+      <div id="timer">0</div>
+      <div id="points">
+        <section id="current_points">POINTS: 0 </section>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+
+var params = window.location.search.split('?')[1]; /////////////extra gia diavasma parathirou
+
+
+/*************************************************************************/
+function show_cloud(sh){
+if(sh==1){
+document.getElementById("cloud_korou").className = 'show';
+}
+
+else if(sh==0){
+	document.getElementById("cloud_adropos").className = 'show';
+	
+}
+}
+function hide_cloud(sh){
+if(sh==1){
+document.getElementById("cloud_korou").className = 'go';
+}
+
+else if(sh==0){
+	document.getElementById("cloud_adropos").className = 'go';
+	
+}
+}
+
+
+
+function show_finalcloud(sh){
+if(sh==1){
+document.getElementById("win_sound").play();
+document.getElementById("cloud_win").className = 'show';
+document.getElementById("korouou").src=gifkorou;
+
+}
+
+else if(sh==0){
+	document.getElementById("lose_sound").play();
+	document.getElementById("cloud_lose").className = 'show';
+	document.getElementById("adropospos").src=gifadropos;
+	
+	
+}
+}
+function hide_finalcloud(sh){
+if(sh==1){
+document.getElementById("cloud_win").className = 'go';
+document.getElementById("korouou").src=pngkorou;
+}
+
+else if(sh==0){
+	document.getElementById("cloud_lose").className = 'go';
+	document.getElementById("adropospos").src=pngadropos;
+	
+}
+}
+
+
+
+function show_fail(){
+		 document.getElementById("sc2").innerHTML =points+" POINTS";
+		 document.getElementById("tim2").innerHTML =(count-1)+" seconds"; 	
+		 document.getElementById("msg_fail").className ='show';
+		 timer.start("-1000", "-1000"); ////////// fevgei otan eisagw high score
+	}
+
+	function show_congrats(){
+		 
+		 document.getElementById("msg_congrats").className ='show';
+		 timer.start("-1000", "-1000"); ////////// fevgei otan eisagw high score
+		 level=level-1;		////////// fevgei otan eisagw high score
+	}
+
+	function show_level(){
+		document.getElementById("l1").innerHTML ="LEVEL "+ (level);
+		document.getElementById("sc0").innerHTML ="you earn "+points+" POINTS!";
+		 document.getElementById("msg_level").className ='show';		
+	}
+	function hidde_level(){
+		 document.getElementById("msg_level").className ='go';
+	}
+	
+
+
+
+
+/****************************************************************************/
+function mat(){                              ///extra
+	var url = "matching.html?"+params;  ////extra
+	window.location.href = url;	     ///extra
+}
+
+
+
+var count=0;//for time
+var points=0;//for points
+var lives=3;//for lives
+
+function dis_div1(){
+//This will disable everything contained in the div
+
+
+
+
+document.getElementById("Ans7").className = "notVisible";
+document.getElementById("Ans8").className = "notVisible";
+document.getElementById("Ans9").className = "notVisible";
+document.getElementById("Ans10").className = "notVisible";
+
+
+/*
+document.getElementById("Ans7").style.zIndex="-10";
+document.getElementById("Ans8").style.zIndex="-1";
+document.getElementById("Ans9").style.zIndex="-1";
+document.getElementById("Ans10").style.zIndex="-1";
+
+*/
+
+
+document.getElementById("langA").onclick = function () {
+  return false; // <-- to suppress the default link behaviour
+};
+document.getElementById("langB").onclick = function () {
+  return false; // <-- to suppress the default link behaviour
+};
+document.getElementById("langC").onclick = function () {
+  return false; // <-- to suppress the default link behaviour
+};
+document.getElementById("langD").onclick = function () {
+  return false; // <-- to suppress the default link behaviour
+};
+
+
+}
+
+dis_div1();
+
+
+
+function dis_div2(){
+
+document.getElementById("engA").onclick = function () {
+  return false; // <-- to suppress the default link behaviour
+};
+document.getElementById("engB").onclick = function () {
+  return false; // <-- to suppress the default link behaviour
+};
+document.getElementById("engC").onclick = function () {
+  return false; // <-- to suppress the default link behaviour
+};
+document.getElementById("engD").onclick = function () {
+  return false; // <-- to suppress the default link behaviour
+};
+
+document.getElementById("Ans1").className = "notVisible";
+document.getElementById("Ans2").className = "notVisible";
+document.getElementById("Ans3").className = "notVisible";
+document.getElementById("Ans4").className = "notVisible";
+
+
+
+
+document.getElementById("langA").onclick = function () {
+	
+  forlang(this.name,this.id);
+  return false; // <-- to suppress the default link behaviour
+};
+document.getElementById("langB").onclick = function () {
+  forlang(this.name,this.id);
+  return false; // <-- to suppress the default link behaviour
+};
+document.getElementById("langC").onclick = function () {
+  forlang(this.name,this.id);
+  return false; // <-- to suppress the default link behaviour
+};
+document.getElementById("langD").onclick = function () {
+  forlang(this.name,this.id);
+  return false; // <-- to suppress the default link behaviour
+};
+
+
+
+
+
+document.getElementById("Ans7").className = "answers";
+document.getElementById("Ans8").className = "answers";
+document.getElementById("Ans9").className = "answers";
+document.getElementById("Ans10").className = "answers";
+
+
+for(var j=1;j<splitted1.length;j++){
+	document.getElementById(splitted2[j]).onclick = function () {
+  	return false; // <-- to suppress the default link behaviour
+	};
+	var pid=$("#"+splitted2[j]).closest("div").attr("id");
+	document.getElementById(pid).className="notVisible";
+	}	
+
+}
+
+
+
+//2->5
+var inenglish=new Array (15);
+inenglish[0]="Yes";
+inenglish[1]="No";
+inenglish[2]="Bye Bye";
+inenglish[3]="Please";
+inenglish[4]="Excuse me";
+inenglish[5]="Thank you";
+inenglish[6]="Goodmorning";
+inenglish[7]="Goodnight";
+inenglish[8]="Hello";
+inenglish[9]="Nice to meet you";
+inenglish[10]="What's your name?";
+inenglish[11]="My name is";
+inenglish[12]="How are you?";
+inenglish[13]="I' m fine";
+inenglish[14]="I' m not fine";
+
+
+
+var ingreek=new Array (15);
+ingreek[0]="Ναι";
+ingreek[1]="Όχι";
+ingreek[2]="Γεια σου";
+ingreek[3]="Παρακαλώ";
+ingreek[4]="Σε παρακαλώ";
+ingreek[5]="Ευχαριστώ";
+ingreek[6]="Καλημέρα";
+ingreek[7]="Καληνύχτα";
+ingreek[8]="Χαίρετε";
+ingreek[9]="Χαίρω πολύ";
+ingreek[10]="Πώς σε λένε;";
+ingreek[11]="Με λένε";
+ingreek[12]="Πώς είσαι;";
+ingreek[13]="Είμαι καλά";
+ingreek[14]="Δεν είμαι καλά";
+
+
+var infinnish=new Array (15);
+infinnish[0]="Kyllä/Joo";
+infinnish[1]="Ei";
+infinnish[2]="Hei Hei/Moi Moi";
+infinnish[3]="-";
+infinnish[4]="Anteeksi";
+infinnish[5]="Kiitos";
+infinnish[6]="Hyvää huomenta";
+infinnish[7]="Hyvää yötä";
+infinnish[8]="Hei/Moi";
+infinnish[9]="Kiva tavata";
+infinnish[10]="Mikä sinun nimesi on?";
+infinnish[11]="Minun nimeni on";
+infinnish[12]="Mitä kuuluu?";
+infinnish[13]="Minulle kuuluu hyvää";
+infinnish[14]="Minulle ei kuulu hyvää";
+
+
+
+var initalian=new Array (15);
+initalian[0]="Si";
+initalian[1]="No";
+initalian[2]="Ciao";
+initalian[3]="Per Favore";
+initalian[4]="Mi Scusi";
+initalian[5]="Grazie";
+initalian[6]="Bongiorno";
+initalian[7]="Buona Notte";
+initalian[8]="Ciao";
+initalian[9]="Piacere d’incontrarti";
+initalian[10]="Come ti chiami?";
+initalian[11]="Il mio nome è";
+initalian[12]="Come stai?";
+initalian[13]="Sto bene";
+initalian[14]="Non sto bene";
+
+
+
+var inpolish=new Array (15);
+inpolish[0]="Tak";
+inpolish[1]="Nie";
+inpolish[2]="Cześć";
+inpolish[3]="Proszę";
+inpolish[4]="Przepraszam";
+inpolish[5]="Dziękuję";
+inpolish[6]="Dzień dobry";
+inpolish[7]="Dobranoc";
+inpolish[8]="Cześć";
+inpolish[9]="Miło Cię spotkać";
+inpolish[10]="Jak masz na imię?";
+inpolish[11]="Mam na imię";
+inpolish[12]="CJak się masz?";
+inpolish[13]="W porządku";
+inpolish[14]="Niezbyt dobrze";
+
+
+
+var inromanian=new Array (15);
+inromanian[0]="Da";
+inromanian[1]="Nu";
+inromanian[2]="Pa";
+inromanian[3]="Te rog";
+inromanian[4]="Scuză-mă";
+inromanian[5]="Mulţumesc";
+inromanian[6]="Bună dimineaţa";
+inromanian[7]="Noapte bună";
+inromanian[8]="Salut";
+inromanian[9]="Ȋncântat de cunoştinţă";
+inromanian[10]="Care este numele tău?";
+inromanian[11]="Numele meu este";
+inromanian[12]="Ce faci?";
+inromanian[13]="Sunt bine";
+inromanian[14]="Nu sunt bine";
+
+
+var inspanish=new Array (15);
+inspanish[0]="Si/Bai";
+inspanish[1]="No/Ez";
+inspanish[2]="Adios/Agur";
+inspanish[3]="Por favor/Mesedez";
+inspanish[4]="Perdone/ Barkatu";
+inspanish[5]="Gracias/Eskerrik asko";
+inspanish[6]="Buenos dias/Egun On";
+inspanish[7]="Buenas Noches/Gabon";
+inspanish[8]="Hola/Kaixo";
+inspanish[9]="Encantado-a /Urte askotako";
+inspanish[10]="¿Cómo te llamas?/Nor zaitut?";
+inspanish[11]="Mi nombre es/Ni _ nauzu";
+inspanish[12]="¿Qué tal estas?/Zer moduz?";
+inspanish[13]="Estoy bien/Ederki";
+inspanish[14]="Estoy mal/Gaizki";
+
+
+var lans=new Array(15);   //////extra
+var gifkorou;
+var gifadropos;
+var pngkorou;
+var pngadropos;
+if (params==1){   /////extra
+	lans=ingreek; 
+	document.getElementById("korouou").src="Asset/cypruswoman.gif";
+	document.getElementById("adropospos").src="Asset/cyprusman.gif";
+	gifkorou="Asset/GIF/cypruswomangif.gif";
+	gifadropos="Asset/GIF/cyprusmangif.gif";
+	pngkorou="Asset/cypruswoman.gif";
+	pngadropos="Asset/cyprusman.gif";
+	 
+}
+
+else if(params==2){ //
+	lans=infinnish;
+	document.getElementById("korouou").src="Asset/finnishwoman.gif";
+	document.getElementById("adropospos").src="Asset/finnishman.gif";
+	gifkorou="Asset/GIF/finnishwomangif.gif";
+	gifadropos="Asset/GIF/finnishmangif.gif";
+	pngkorou="Asset/finnishwoman.gif";
+	pngadropos="Asset/finnishman.gif";
+	
+}
+
+else if(params==3){ //
+	lans=inromanian;
+	document.getElementById("korouou").src="Asset/romanianwoman.gif";
+	document.getElementById("adropospos").src="Asset/romanianman.gif";
+	gifkorou="Asset/GIF/romanianwomangif.gif";
+	gifadropos="Asset/GIF/romanianmangif.gif";
+	pngkorou="Asset/romanianwoman.gif";
+	pngadropos="Asset/romanianman.gif";
+}
+
+else if(params==4){ //
+	lans=inpolish;
+	document.getElementById("korouou").src="Asset/polandwoman.gif";
+	document.getElementById("adropospos").src="Asset/polandman.gif";
+	gifkorou="Asset/GIF/polandwomangif.gif";
+	gifadropos="Asset/GIF/polandmangif.gif";
+	pngkorou="Asset/polandwoman.gif";
+	pngadropos="Asset/polandman.gif";
+}
+else if(params==5){ //
+	lans=initalian;
+	document.getElementById("korouou").src="Asset/italianwoman.gif";
+	document.getElementById("adropospos").src="Asset/italianman.gif";
+	gifkorou="Asset/GIF/italianwomangif.gif";
+	gifadropos="Asset/GIF/italianmangif.gif";
+	pngkorou="Asset/italianwoman.gif";
+	pngadropos="Asset/italianman.gif";
+	
+}
+else if(params==6){ ///////extra
+	lans=inspanish;
+	document.getElementById("korouou").src="Asset/spanishwoman.gif";
+	document.getElementById("adropospos").src="Asset/spanishman.gif";
+	gifkorou="Asset/GIF/spanishwomangif.gif";
+	gifadropos="Asset/GIF/spanishmangif.gif";
+	pngkorou="Asset/spanishwoman.gif";
+	pngadropos="Asset/spanishman.gif";
+}
+
+
+
+var a=0;
+var b=0;
+var c=0;
+var d=0;
+
+var index_a=0;
+var index_b=0;
+var index_c=0;
+var index_d=0;
+var level=1;
+
+
+	function set_choice(language,isEn,level){
+	
+	
+	var l;
+	var index;
+	
+	
+	do{
+	if (level==1){
+		l=4;
+		index=Math.random()*l;
+	}
+	else if (level==2){
+		l=4;
+		index=Math.random()*l+4;
+	}
+	else if(level==3){
+		l=2;
+		index=Math.random()*l+8;
+			
+	}
+	else if(level==4){
+		l=2;
+		index=Math.random()*l+10;
+			
+	}
+	else if(level==5 || level==6 ||level==7){
+		l=3;
+		index=Math.random()*l+12;
+			
+	}
+	
+	
+	index = (parseFloat(parseFloat(index).toString().substr(0,(parseFloat(index).toString().indexOf('.') > -1) ? (parseFloat(index).toString().indexOf('.')) : (parseFloat(index).toString().length))))
+	
+	}while(language[index]=="-2");
+	
+	if(level==1||level==2||level==3||level==4 || ((level==5 || level==6|| level==7) && isEn==1) ){///////
+
+	a=language[index];
+	index_a=index;
+	language[index]="-2";
+	
+	}////////
+	
+	else if((level==5||level==6||level==7)&&isEn==0){//////
+		a=language[index_a];////
+		language[index_a]="-2";//////////
+	}//////
+	
+	
+	
+	if (level==1||level==2||level==3||level==4){
+	do {
+		
+		if (level==1){
+			l=4;
+			index=Math.random()*l;
+		}
+		else if (level==2){
+			l=4;
+			index=Math.random()*l+4;
+		}
+		else if(level==3){
+			l=2;
+			index=Math.random()*l+8;
+				
+		}
+		else if(level==4){
+		l=2;
+		index=Math.random()*l+10;
+			
+		}
+		
+ 	    index = (parseFloat(parseFloat(index).toString().substr(0,(parseFloat(index).        toString().indexOf('.') > -1) ? (parseFloat(index).toString().indexOf('.')) : (        parseFloat(index).toString().length))))
+		
+		
+	}while(language[index]=="-2");
+	
+	b=language[index];
+	index_b=index;
+	language[index]="-2";
+	
+	}
+	
+	//alert(a+" "+b);///////////////////////////////////////////////////////////////////////
+	
+	if (level!=3 && level!=4 &&level!=5 && level!=6 && level!=7){
+	do {
+		if (level==1){
+			l=4;
+			index=Math.random()*l;
+		}
+		else if (level==2){
+			l=4;
+			index=Math.random()*l+4;
+		}
+ 	    index = (parseFloat(parseFloat(index).toString().substr(0,(parseFloat(index).        toString().indexOf('.') > -1) ? (parseFloat(index).toString().indexOf('.')) : (        parseFloat(index).toString().length))))
+		
+		
+	}while(language[index]=="-2");
+	
+	c=language[index];
+	index_c=index;
+	language[index]="-2";
+	
+	
+	do {
+		if (level==1){
+			l=4;
+			index=Math.random()*l;
+		}
+		else if (level==2){
+			l=4;
+			index=Math.random()*l+4;
+		}
+ 	    index = (parseFloat(parseFloat(index).toString().substr(0,(parseFloat(index).        toString().indexOf('.') > -1) ? (parseFloat(index).toString().indexOf('.')) : (        parseFloat(index).toString().length))))
+		
+		
+	}while(language[index]=="-2");
+	
+	d=language[index];
+	index_d=index;
+	language[index]="-2";
+	
+	}
+	
+		
+	
+	if ((level==3 || level==4 || level==5 || level==6 || level==7)&& (isEn==0)){
+		
+		c=document.getElementById("langC").innerHTML;
+		index_c=document.getElementById("langC").name;
+		d=document.getElementById("langD").innerHTML;   
+		index_d=document.getElementById("langD").name;
+		
+		if (level==5||level==6||level==7){		
+			b=document.getElementById("langB").innerHTML;
+			index_b=document.getElementById("langB").name;	
+		}
+		
+		
+		var temporary;
+		var tempindex;
+		
+		
+		var temp=Math.random()*4;
+		temp = (parseFloat(parseFloat(temp).toString().substr(0,(parseFloat(temp).        toString().indexOf('.') > -1) ? (parseFloat(temp).toString().indexOf('.')) : (        parseFloat(temp).toString().length))))
+		
+		
+		
+		if (temp==0){
+		temporary=a;
+		tempindex=index_a;
+		a=a;
+		index_a=index_a;
+		a=temporary;
+		index_a=tempindex;
+		}
+		else if(temp==1){
+		temporary=b;
+		tempindex=index_b;
+		b=a;
+		index_b=index_a;
+		a=temporary;
+		index_a=tempindex;	
+		}	
+		
+		else if(temp==2){
+		temporary=c;
+		tempindex=index_c;
+		c=a;
+		index_c=index_a;
+		a=temporary;
+		index_a=tempindex;
+		}
+		else if(temp==3){
+		temporary=d;
+		tempindex=index_d;
+		d=a;
+		index_d=index_a;
+		a=temporary;
+		index_a=tempindex;	
+		}
+		
+
+		
+		
+		
+		
+		
+		temp=Math.random()*4;
+		temp = (parseFloat(parseFloat(temp).toString().substr(0,(parseFloat(temp).        toString().indexOf('.') > -1) ? (parseFloat(temp).toString().indexOf('.')) : (        parseFloat(temp).toString().length))))
+		
+		
+		
+		
+		
+		
+		if (temp==0){
+		temporary=a;
+		tempindex=index_a;
+		a=b;
+		index_a=index_b;
+		b=temporary;
+		index_b=tempindex;
+		}
+		else if(temp==1){
+		temporary=b;
+		tempindex=index_b;
+		b=b;
+		index_b=index_b;
+		b=temporary;
+		index_b=tempindex;	
+		}
+		else if(temp==2){
+		temporary=c;
+		tempindex=index_c;
+		c=b;
+		index_c=index_b;
+		b=temporary;
+		index_b=tempindex;
+		}
+		else if(temp==3){
+		temporary=d;
+		tempindex=index_d;
+		d=b;
+		index_d=index_b;
+		b=temporary;
+		index_b=tempindex;
+		}
+			
+	}
+	
+	
+	if (isEn==1){
+
+	document.getElementById("engA").name = index_a;
+	document.getElementById("engB").name = index_b;
+	document.getElementById("engC").name = index_c;        
+	document.getElementById("engD").name = index_d;
+	
+	
+
+	
+
+	
+	
+	document.getElementById("engA").innerHTML = a;
+	document.getElementById("engB").innerHTML = b;
+	document.getElementById("engC").innerHTML = c;        
+	document.getElementById("engD").innerHTML = d;
+	
+	
+	if (level==3 || level==4 || level==5 || level==6 || level==7){
+		document.getElementById("engC").style.visibility='hidden';
+		document.getElementById("engD").style.visibility='hidden';
+		document.getElementById("Ans3").style.visibility='hidden';
+		document.getElementById("Ans4").style.visibility='hidden';
+	}
+	
+	if (level==5||level==6||level==7){
+		document.getElementById("engB").style.visibility='hidden';	
+		document.getElementById("Ans2").style.visibility='hidden';	
+	}
+	
+	}
+	else{
+		
+		
+	document.getElementById("langA").name = index_a;
+	document.getElementById("langB").name = index_b;
+	document.getElementById("langC").name = index_c;        
+	document.getElementById("langD").name = index_d;
+	
+	
+
+
+	
+	
+	document.getElementById("langA").innerHTML = a;
+	document.getElementById("langB").innerHTML = b;
+	document.getElementById("langC").innerHTML = c;        
+	document.getElementById("langD").innerHTML = d;
+	
+	
+	
+		
+	}
+
+	
+
+	}
+	
+	
+	set_choice(inenglish,1,level);
+	set_choice(lans,0,level);   //	set_choice(lan,0,level);
+
+	
+	
+
+	
+	
+	var value1=0;
+	var value2=0;
+	var id1=0;
+	var id2=0;
+	var chosen1='^';
+	var chosen2='^';
+	var splitted1=new Array(0);
+	var splitted2=new Array(0);
+	var fin1=0;
+	
+	
+	function foreng(val1,identity1){
+		value1=val1;
+		id1=identity1;	
+	}
+	
+	
+	
+	
+	function forlang(val2,identity2){
+		
+		
+		value2=val2;
+		id2=identity2;
+		
+		
+		
+		if (value1==value2){ //correct
+		points=points+10;
+		if (level!=7){
+		setTimeout (function (){show_cloud(1);},500);
+		setTimeout (function (){hide_cloud(1);},2000);
+		}
+		
+		//alert("correct matching!!!"); ///// green colour
+		chosen1=chosen1+","+id1;
+		chosen2=chosen2+","+id2;
+		splitted1=chosen1.split(",");
+		splitted2=chosen2.split(",");
+		
+		
+		
+		
+		document.getElementById("engA").onclick = function () {
+  foreng(this.name,this.id); dis_div2();
+  return false; // <-- to suppress the default link behaviour
+};
+document.getElementById("engB").onclick = function () {
+  foreng(this.name,this.id); dis_div2();
+  return false; // <-- to suppress the default link behaviour
+};
+document.getElementById("engC").onclick = function () {
+  foreng(this.name,this.id); dis_div2();
+  return false; // <-- to suppress the default link behaviour
+};
+document.getElementById("engD").onclick = function () {
+  foreng(this.name,this.id); dis_div2();
+  return false; // <-- to suppress the default link behaviour
+};
+
+		
+		
+		
+		
+
+		document.getElementById("Ans1").className = "answers";
+		document.getElementById("Ans2").className = "answers";
+		document.getElementById("Ans3").className = "answers";
+		document.getElementById("Ans4").className = "answers";	
+		
+		
+		
+		
+		
+		document.getElementById("langA").onclick = function () {
+  return false; // <-- to suppress the default link behaviour
+};
+document.getElementById("langB").onclick = function () {
+  return false; // <-- to suppress the default link behaviour
+};
+document.getElementById("langC").onclick = function () {
+  return false; // <-- to suppress the default link behaviour
+};
+document.getElementById("langD").onclick = function () {
+  return false; // <-- to suppress the default link behaviour
+};
+		
+		
+	
+		document.getElementById("Ans7").className = "notVisible";
+		document.getElementById("Ans8").className = "notVisible";
+		document.getElementById("Ans9").className = "notVisible";
+		document.getElementById("Ans10").className = "notVisible";	
+		
+		
+		
+		for(var j=1;j<splitted1.length;j++){
+			
+			document.getElementById(splitted1[j]).onclick = function () {
+  return false; // <-- to suppress the default link behaviour
+};
+			var pid=$("#"+splitted1[j]).closest("div").attr("id");
+			document.getElementById(pid).className="notVisible";
+			
+		}
+		
+		
+		
+		
+		fin1++;
+		if ((level==1 || level==2) && fin1==4){
+			show_level();
+			//alert("finish level!");
+			level++;
+			
+			setTimeout( function () {  set_choice(inenglish,1,level); set_choice(lans,0,level); 
+				
+			}, 1000);
+			
+			document.getElementById("engA").onclick = function () {
+				foreng(this.name,this.id); dis_div2();
+  return false; // <-- to suppress the default link behaviour
+};
+document.getElementById("engB").onclick = function () {
+	foreng(this.name,this.id); dis_div2();
+  return false; // <-- to suppress the default link behaviour
+};
+document.getElementById("engC").onclick = function () {
+	foreng(this.name,this.id); dis_div2();
+  return false; // <-- to suppress the default link behaviour
+};
+document.getElementById("engD").onclick = function () {
+	foreng(this.name,this.id); dis_div2();
+  return false; // <-- to suppress the default link behaviour
+};
+			
+			
+			
+
+		document.getElementById("Ans1").className = "answers";
+		document.getElementById("Ans2").className = "answers";
+		document.getElementById("Ans3").className = "answers";
+		document.getElementById("Ans4").className = "answers";	
+		
+		
+		
+		document.getElementById("langA").onclick = function () {
+  return false; // <-- to suppress the default link behaviour
+};
+document.getElementById("langB").onclick = function () {
+
+  return false; // <-- to suppress the default link behaviour
+};
+document.getElementById("langC").onclick = function () {
+	
+  return false; // <-- to suppress the default link behaviour
+};
+document.getElementById("langD").onclick = function () {
+	
+  return false; // <-- to suppress the default link behaviour
+};
+
+		document.getElementById("Ans7").className = "notVisible";
+		document.getElementById("Ans8").className = "notVisible";
+		document.getElementById("Ans9").className = "notVisible";
+		document.getElementById("Ans10").className = "notVisible";	
+			chosen1='^';
+			chosen2='^';
+			splitted1=new Array(0);
+			splitted2=new Array(0);
+			fin1=0;
+		}
+		
+		
+		else if ((level==3 || level==4) && fin1==2){
+			show_level();
+			//alert("finish level!");
+			level++;
+			setTimeout( function () { set_choice(inenglish,1,level); set_choice(lans,0,level); 
+				
+			}, 1000);
+			
+			
+			document.getElementById("engA").onclick = function () {
+				foreng(this.name,this.id); dis_div2();
+  return false; // <-- to suppress the default link behaviour
+};
+document.getElementById("engB").onclick = function () {
+	foreng(this.name,this.id); dis_div2();
+  return false; // <-- to suppress the default link behaviour
+};
+document.getElementById("engC").onclick = function () {
+	foreng(this.name,this.id); dis_div2();
+  return false; // <-- to suppress the default link behaviour
+};
+document.getElementById("engD").onclick = function () {
+	foreng(this.name,this.id); dis_div2();
+  return false; // <-- to suppress the default link behaviour
+};
+			
+			
+
+		document.getElementById("Ans1").className = "answers";
+		document.getElementById("Ans2").className = "answers";
+		document.getElementById("Ans3").className = "answers";
+		document.getElementById("Ans4").className = "answers";	
+		
+		
+		
+		document.getElementById("langA").onclick = function () {
+				
+  return false; // <-- to suppress the default link behaviour
+};
+document.getElementById("langB").onclick = function () {
+	
+  return false; // <-- to suppress the default link behaviour
+};
+document.getElementById("langC").onclick = function () {
+	
+  return false; // <-- to suppress the default link behaviour
+};
+document.getElementById("langD").onclick = function () {
+	
+  return false; // <-- to suppress the default link behaviour
+};
+
+		document.getElementById("Ans7").className = "notVisible";
+		document.getElementById("Ans8").className = "notVisible";
+		document.getElementById("Ans9").className = "notVisible";
+		document.getElementById("Ans10").className = "notVisible";	
+			chosen1='^';
+			chosen2='^';
+			splitted1=new Array(0);
+			splitted2=new Array(0);
+			fin1=0;
+		}
+		
+		
+		else if ((level==5 || level==6 || level==7) && fin1==1){
+			show_level();
+			//alert("finish level!");
+			level++;
+			if (level==8){
+				var oldpoints=points;
+			points=points+(lives*20); ////////////points from lives
+			document.getElementById("sc1").innerHTML ="Your score is: "+oldpoints +"+("+lives+"x20) = "+points+" POINTS";
+			document.getElementById("tim1").innerHTML =(count-1)+" seconds!";
+			setTimeout (function (){show_finalcloud(1);},2000);
+			setTimeout (function (){hide_finalcloud(1);},5000);
+			show_congrats();
+			//alert ("you finish the game!\n your points: \n "+oldpoints+" + ("+lives+" lives *20 points) =\n"+points+"\n in "+count+"seconds!"); //////////////////////////////////////finish the game  if winner then  .... else replay or exit	
+				
+			}
+			else{
+		setTimeout( function () {  set_choice(inenglish,1,level); set_choice(lans,0,level); 
+				
+			}, 1000);
+			
+			document.getElementById("engA").onclick = function () {
+				foreng(this.name,this.id); dis_div2();
+  return false; // <-- to suppress the default link behaviour
+};
+document.getElementById("engB").onclick = function () {
+	foreng(this.name,this.id); dis_div2();
+  return false; // <-- to suppress the default link behaviour
+};
+document.getElementById("engC").onclick = function () {
+	foreng(this.name,this.id); dis_div2();
+  return false; // <-- to suppress the default link behaviour
+};
+document.getElementById("engD").onclick = function () {
+	foreng(this.name,this.id); dis_div2();
+  return false; // <-- to suppress the default link behaviour
+};
+			
+			
+			
+
+		document.getElementById("Ans1").className = "answers";
+		document.getElementById("Ans2").className = "answers";
+		document.getElementById("Ans3").className = "answers";
+		document.getElementById("Ans4").className = "answers";	
+		
+		
+		
+		document.getElementById("langA").onclick = function () {
+				
+  return false; // <-- to suppress the default link behaviour
+};
+document.getElementById("langB").onclick = function () {
+	
+  return false; // <-- to suppress the default link behaviour
+};
+document.getElementById("langC").onclick = function () {
+	
+  return false; // <-- to suppress the default link behaviour
+};
+document.getElementById("langD").onclick = function () {
+	
+  return false; // <-- to suppress the default link behaviour
+};
+
+		document.getElementById("Ans7").className = "notVisible";
+		document.getElementById("Ans8").className = "notVisible";
+		document.getElementById("Ans9").className = "notVisible";
+		document.getElementById("Ans10").className = "notVisible";	
+			chosen1='^';
+			chosen2='^';
+			splitted1=new Array(0);
+			splitted2=new Array(0);
+			fin1=0;
+			}
+			
+			
+			
+			
+		}
+		
+		
+		}
+		
+		
+		else{	//wrong
+			
+			 
+			lives--;
+			
+			if(lives!=0){
+			setTimeout (function (){show_cloud(0);},500);
+			setTimeout (function (){hide_cloud(0);},2000);
+			}
+			
+			
+			if (points==0){
+				points=0;
+			}else{
+				points=points-10;
+			}
+			
+			
+			if (lives==2){
+				
+				document.getElementById("life3").style.visibility='hidden';
+
+			}
+			
+			else if (lives==1){
+				
+				document.getElementById("life2").style.visibility='hidden';
+
+			}
+			
+			else if (lives==0){
+				document.getElementById("life1").style.visibility='hidden'; 
+				setTimeout (function (){show_finalcloud(0);},2000);
+				setTimeout (function (){hide_finalcloud(0);},5000);     
+				show_fail();
+				//alert ("YOU LOSE! you have "+points+" points in "+count+" seconds!");/////////////////////////////////////////exit game or replay
+			}
+		
+			
+			
+			document.getElementById("engA").onclick = function () {
+				foreng(this.name,this.id); dis_div2();
+  return false; // <-- to suppress the default link behaviour
+};
+document.getElementById("engB").onclick = function () {
+	foreng(this.name,this.id); dis_div2();
+  return false; // <-- to suppress the default link behaviour
+};
+document.getElementById("engC").onclick = function () {
+	foreng(this.name,this.id); dis_div2();
+  return false; // <-- to suppress the default link behaviour
+};
+document.getElementById("engD").onclick = function () {
+	foreng(this.name,this.id); dis_div2();
+  return false; // <-- to suppress the default link behaviour
+};
+
+		document.getElementById("Ans1").className = "answers";
+		document.getElementById("Ans2").className = "answers";
+		document.getElementById("Ans3").className = "answers";
+		document.getElementById("Ans4").className = "answers";	
+		
+		
+		
+		document.getElementById("langA").onclick = function () {
+			
+  return false; // <-- to suppress the default link behaviour
+};
+document.getElementById("langB").onclick = function () {
+	
+  return false; // <-- to suppress the default link behaviour
+};
+document.getElementById("langC").onclick = function () {
+	
+  return false; // <-- to suppress the default link behaviour
+};
+document.getElementById("langD").onclick = function () {
+	
+  return false; // <-- to suppress the default link behaviour
+};
+
+		document.getElementById("Ans7").className = "notVisible";
+		document.getElementById("Ans8").className = "notVisible";
+		document.getElementById("Ans9").className = "notVisible";
+		document.getElementById("Ans10").className = "notVisible";	
+			for(var j=1;j<splitted1.length;j++){
+				
+				document.getElementById(splitted1[j]).onclick = function () {
+	
+  return false; // <-- to suppress the default link behaviour
+};
+				var pid=$("#"+splitted1[j]).closest("div").attr("id");
+				document.getElementById(pid).className="notVisible";
+			}
+			
+			
+			//alert("wrong matching!!"); //red colour	
+		}
+		
+				
+			document.getElementById("current_points").innerHTML = "POINTS: "+ points; ///////////////////
+			document.getElementById("lev").innerHTML ="Level: " +level+"-7"; ///////////////////
+			
+
+	}
+	
+	
+	function unpress(){
+		
+		
+		
+		value1=0;
+		value2=0;
+		id1=0;
+		id2=0;
+		
+		
+		document.getElementById("engA").onclick = function () {
+				foreng(this.name,this.id); dis_div2();
+  return false; // <-- to suppress the default link behaviour
+};
+document.getElementById("engB").onclick = function () {
+	foreng(this.name,this.id); dis_div2();
+  return false; // <-- to suppress the default link behaviour
+};
+document.getElementById("engC").onclick = function () {
+	foreng(this.name,this.id); dis_div2();
+  return false; // <-- to suppress the default link behaviour
+};
+document.getElementById("engD").onclick = function () {
+	foreng(this.name,this.id); dis_div2();
+  return false; // <-- to suppress the default link behaviour
+};
+
+		document.getElementById("Ans1").className = "answers";
+		document.getElementById("Ans2").className = "answers";
+		document.getElementById("Ans3").className = "answers";
+		document.getElementById("Ans4").className = "answers";	
+		
+		
+		
+		document.getElementById("langA").onclick = function () {
+			
+  return false; // <-- to suppress the default link behaviour
+};
+document.getElementById("langB").onclick = function () {
+	
+  return false; // <-- to suppress the default link behaviour
+};
+document.getElementById("langC").onclick = function () {
+	
+  return false; // <-- to suppress the default link behaviour
+};
+document.getElementById("langD").onclick = function () {
+	
+  return false; // <-- to suppress the default link behaviour
+};
+
+		document.getElementById("Ans7").className = "notVisible";
+		document.getElementById("Ans8").className = "notVisible";
+		document.getElementById("Ans9").className = "notVisible";
+		document.getElementById("Ans10").className = "notVisible";	
+		
+		
+		for(var j=1;j<splitted1.length;j++){
+			
+			document.getElementById(splitted1[j]).onclick = function () {
+	
+  return false; // <-- to suppress the default link behaviour
+};
+			var pid=$("#"+splitted1[j]).closest("div").attr("id");
+			document.getElementById(pid).className="notVisible";
+		
+		}
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	var timer = (function() {
+    var basePeriod = 1000;
+    var currentSpeed = 1;
+    var timerElement;
+    var timeoutRef;
+    
+
+    return {
+      start : function(speed, id) {
+        if (speed >= 0) {
+          currentSpeed = speed;
+		  timer.run();
+        }
+        if (id) {
+          timerElement = document.getElementById(id);
+		  timer.run();
+        }
+		if (speed=="-1000"&&id=="-1000"){
+			count=count;
+		}
+        
+      },
+
+      run: function() {
+        if (timeoutRef) clearInterval(timeoutRef);
+        if (timerElement) {
+          timerElement.innerHTML = count;
+        }
+        if (currentSpeed) {
+          timeoutRef = setTimeout(timer.run, basePeriod/currentSpeed);
+        }
+        ++count;
+      },
+
+      setSpeed: function(speed) {
+        currentSpeed = +speed;
+        timer.run();
+      }
+	 
+    }
+	
+
+}());
+
+window.onload = function(){timer.start(1, 'timer');};
+	
+	
+	
+	
+	
+	
+	
+	
+
+</script>
+</body>
+</html>
