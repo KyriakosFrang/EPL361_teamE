@@ -1,0 +1,116 @@
+@charset "utf-8";
+/* CSS Document */
+
+body{
+background-color:black;
+background-image:
+radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 40px),
+radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 30px),
+radial-gradient(white, rgba(255,255,255,.1) 2px, transparent 40px),
+radial-gradient(rgba(255,255,255,.4), rgba(255,255,255,.1) 2px, transparent 30px);
+background-size: 550px 550px, 350px 350px, 250px 250px, 150px 150px; 
+background-position: 0 0, 40px 60px, 130px 270px, 70px 100px;	
+}
+#home_img:hover{
+	transform: translateX(-10px);
+	-webkit-transform: translateX(-10px);
+	
+	
+}
+
+#home{
+	margin-top: 10px;
+	transition:all .1s;
+	-webkit-transition: all .1s;	
+}
+#titles
+{
+	position: absolute;
+	width: 18em;
+	height: 50em;
+	bottom: 0;
+	left: 50%;
+	margin-left: -9em;
+	font-size: 350%;
+	font-weight: bold;
+	color:#FFFFFF;
+	text-align: justify;
+	overflow: hidden;
+	transform-origin: 50% 100%;
+	transform: perspective(300px) rotateX(25deg);
+	-webkit-transform-origin: 50% 100%;
+	-webkit-transform: perspective(300px) rotateX(25deg);
+}
+#logo_end{
+	width: 100%;
+	text-align: center;	
+	visibility:hidden;
+}
+#titles:after
+{
+	position: absolute;
+	content: ' ';
+	left: 0;
+	right: 0;
+	color:#FFFFFF;
+	top: 0;
+	bottom: 60%;
+	background-image: linear-gradient(top, rgba(0,0,0,1) 0%, transparent 100%);
+	pointer-events: none;
+}
+
+#titlecontent
+{
+	position: absolute;
+	top: 100%;
+	-webkit-animation: scroll 100s linear 1s 1;
+	animation: scroll 100s linear 1s 1;
+}
+
+@keyframes scroll {
+	0% { top: 100%; }
+	100% { top: -170%; visibility:hidden; }
+}
+
+@-webkit-keyframes scroll {
+	0% { top: 100%; }
+	100% { top: -170%; visibility:hidden; }
+}
+#cyflag {
+	border-radius: 80px;
+	transition: all .5s;
+	-webkit-transition: all .5s;
+}
+
+#finlandflag {
+	border-radius: 80px;
+	transition: all .5s;
+	-webkit-transition: all .5s;
+}
+
+#romaniaflag {
+	border-radius: 80px;
+	transition: all .5s;
+	-webkit-transition: all .5s;
+}
+
+#polandflag {
+	border-radius: 80px;
+	transition: all .5s;
+	-webkit-transition: all .5s;
+}
+
+#italyflag {
+	border-radius: 80px;
+	transition: all .5s;
+	-webkit-transition: all .5s;
+}
+	
+#spainflag {
+	border-radius: 80px;
+	transition: all .5s;
+	-webkit-transition: all .5s;
+}
+#countries{
+text-align:center;	
+}
